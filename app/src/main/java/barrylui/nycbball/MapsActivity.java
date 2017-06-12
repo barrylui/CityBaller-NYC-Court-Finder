@@ -151,12 +151,13 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnInfoWi
 
         getDeviceLocation();
         for (int i = 0; i < courtData.getSize(); i++){
-            Marker marker = mMap.addMarker(new MarkerOptions()
+            String name = (String) courtData.getItem(i).get("name");
+            Marker mark = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng((double) courtData.getItem(i).get("lat"), (double) courtData.getItem(i).get("lng")))
-                    .title((String) courtData.getItem(i).get("name"))
+                    .title(name)
                     .snippet("Tap for more info")
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.bball)));
-            marker.setTag(i);
+            mark.setTag(i);
         }
         mMap.setOnInfoWindowClickListener(this);
 

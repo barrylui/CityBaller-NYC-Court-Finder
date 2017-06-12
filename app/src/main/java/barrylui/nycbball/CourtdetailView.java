@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class CourtdetailView extends Fragment {
@@ -25,6 +26,10 @@ public class CourtdetailView extends Fragment {
 
     public CourtdetailView() {
         // Required empty public constructor
+    }
+
+    public interface OnListItemSelectedListener {
+        public void onListItemSelectedListener(int num);
     }
 
     // TODO: Rename and change types and number of parameters
@@ -46,10 +51,29 @@ public class CourtdetailView extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView;
+        final OnListItemSelectedListener mListener = (OnListItemSelectedListener) getContext();
         rootView = inflater.inflate(R.layout.fragment_courtdetail_view, container, false);
+
         courtTitle = (TextView) rootView.findViewById(R.id.courtname);
-        int getName = getArguments().getInt("pos");
+        final int getName = getArguments().getInt("pos");
         courtTitle.setText((String)courtData.getItem(getName).get("name"));
+
+        Button directions = (Button) rootView.findViewById(R.id.button);
+        Button image = (Button) rootView.findViewById(R.id.button2);
+
+        directions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onListItemSelectedListener(1);
+            }
+        });
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onListItemSelectedListener(getName);
+            }
+        });
+
         // Inflate the layout for this fragment
         return rootView;
     }
