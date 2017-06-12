@@ -19,5 +19,6 @@ public class CourtActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container1, CourtdetailView.newInstance(R.id.courtdv)).commit();
+        //sometexthere
     }
 }
