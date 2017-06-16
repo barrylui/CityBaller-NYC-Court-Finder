@@ -44,6 +44,13 @@ public class CourtData {
         description = "Seward Park court";
         imageurl = "http://www.dermandar.com/p/bqantM";
         courtsList.add(createCourt("Seward Park",lat,lng,description,imageurl));
+
+        lat = 40.8122222;
+        lng = -73.9463889;
+        description = "shitty park";
+        imageurl = "http://www.dermandar.com/p/cnVCRl";
+        courtsList.add(createCourt("St. Nicholas Playground North",lat,lng,description,imageurl));
+
     }
 
     private HashMap createCourt (String name, double lat, double lng, String description,String imageurl) {

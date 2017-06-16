@@ -31,6 +31,9 @@ public class CourtdetailView extends Fragment {
     public interface OnListItemSelectedListener {
         public void onListItemSelectedListener(int num);
     }
+    public interface DirectionListener {
+        public void ondirection(int num);
+    }
 
     // TODO: Rename and change types and number of parameters
     public static CourtdetailView newInstance(int sectionNumber) {
@@ -52,11 +55,12 @@ public class CourtdetailView extends Fragment {
                              Bundle savedInstanceState) {
         View rootView;
         final OnListItemSelectedListener mListener = (OnListItemSelectedListener) getContext();
+        final DirectionListener aListener = (DirectionListener) getContext();
         rootView = inflater.inflate(R.layout.fragment_courtdetail_view, container, false);
 
         courtTitle = (TextView) rootView.findViewById(R.id.courtname);
-        final int getName = getArguments().getInt("pos");
-        courtTitle.setText((String)courtData.getItem(getName).get("name"));
+        final int index = getArguments().getInt(ARG_SECTION_NUMBER);
+        courtTitle.setText((String)courtData.getItem(index).get("name"));
 
         Button directions = (Button) rootView.findViewById(R.id.button);
         Button image = (Button) rootView.findViewById(R.id.button2);
@@ -64,13 +68,13 @@ public class CourtdetailView extends Fragment {
         directions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onListItemSelectedListener(1);
+                aListener.ondirection(index);
             }
         });
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onListItemSelectedListener(getName);
+                mListener.onListItemSelectedListener(index);
             }
         });
 
