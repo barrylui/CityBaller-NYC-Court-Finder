@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class CourtActivity extends AppCompatActivity implements CourtdetailView.OnListItemSelectedListener, CourtdetailView.DirectionListener {
 
@@ -36,12 +37,13 @@ public class CourtActivity extends AppCompatActivity implements CourtdetailView.
         String url = (String)courtData.getItem(number).get("dlink");
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(browserIntent);
-
     }
 
 
     public void onListItemSelectedListener(int number){
             bContent = PanoFragment.newInstance(number);
+        View view = this.getWindow().getDecorView();
+        view.setBackgroundColor(getResources().getColor(R.color.black));
             getSupportFragmentManager().beginTransaction()
             .replace(R.id.container1, bContent).addToBackStack(null)
             .commit();
