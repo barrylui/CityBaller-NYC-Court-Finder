@@ -17,14 +17,16 @@
         android:text="DETAILS HERE"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"></TextView>
+        android:layout_centerHorizontal="true"
+        android:textSize="35dp"
+        android:textAlignment="center"></TextView>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Directions"
         android:id="@+id/button"
-        android:layout_below="@+id/courtname"
+        android:layout_below="@+id/ratingBar"
         android:layout_alignLeft="@+id/ratingBar"
         android:layout_alignStart="@+id/ratingBar"></Button>
 
@@ -33,7 +35,7 @@
         android:layout_height="wrap_content"
         android:text="CourtView"
         android:id="@+id/button2"
-        android:layout_below="@+id/courtname"
+        android:layout_below="@+id/ratingBar"
         android:layout_alignRight="@+id/ratingBar"
         android:layout_alignEnd="@+id/ratingBar" />
 
@@ -43,15 +45,15 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/dtv"
-        android:layout_below="@+id/button2"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="88dp" />
+        android:textAlignment="center" />
 
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ratingBar"
-        android:layout_below="@id/button2"
+        android:layout_below="@id/courtname"
         android:layout_centerHorizontal="true" />
 
     <CheckBox
@@ -60,8 +62,10 @@
         android:text="Fullcourt"
         android:id="@+id/checkBox"
         android:checked="false"
-        android:layout_below="@+id/ratingBar"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:clickable="false"/>
 
 
 </RelativeLayout>

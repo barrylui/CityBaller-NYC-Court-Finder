@@ -35,7 +35,7 @@ public class CourtData {
         courtsList = new ArrayList<Map<String, ?>>();
 
 
-        lat = 40.6875;
+        /*lat = 40.6875;
         lng = -73.9258333;
         description = "My court";
         imageurl = "http://graphics.wsj.com/brooklyn-best-and-worst-basketball-courts/img/reinaldo.jpg";
@@ -49,18 +49,68 @@ public class CourtData {
         lng = -73.9895836;
         description = "Seward Park court";
         imageurl = "http://www.dermandar.com/p/bqantM";
+        rating = 0;
         fullcourt = false;
         dlink = "https://citymapper.com/directions?endcoord=40.7148246%2C-73.9895836&endname=Seward%20Park";
         courtsList.add(createCourt("Seward Park",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        */
 
         lat = 40.8122222;
         lng = -73.9463889;
-        description = "shitty park";
+        description = "This worn down court has seen better days with its rusty metal backboards, faded lines and crooked rims. " +
+                "There is one full-court and one mini-full court. Go across the street to the South park for better courts ";
         imageurl = "http://www.dermandar.com/p/cnVCRl";
-        rating = 3;
+        rating = 3.5;
         fullcourt = true;
         dlink = "https://citymapper.com/directions?endcoord=40.8122222%2C-73.9463889&endname=St%20Nicholas%20Playground%20North";
         courtsList.add(createCourt("St. Nicholas Playground North",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
+        lat = 40.8111111;
+        lng = -73.9472222;
+        description = "An example of a rugged typical New York City basketball court. Beyond the roadside location and apartment backdrop, the two full-courts and two half courts" +
+                "are clean, clearly marked and perfectly adequate";
+        imageurl = "http://www.dermandar.com/p/avPmaY";
+        rating = 5.5;
+        fullcourt = true;
+        dlink = "https://citymapper.com/directions?endcoord=40.8111111%2C-73.9472222&endname=St%20Nicholas%20Playground%20South";
+        courtsList.add(createCourt("St. Nicholas Playground South",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
+        lat = 40.712774;
+        lng = -73.991075;
+        description = "This very blue-colored court located in Chinatown looks great upon first glance with a nice playing surface and two full courts. " +
+                "The only things that are missing is a 3-point line and some nets for the metal rims";
+        imageurl = "http://www.dermandar.com/p/aSmTAt";
+        rating = 7;
+        fullcourt = true;
+        dlink = "https://citymapper.com/directions?endcoord=40.712774%2C-73.991075&endname=Playground%20One";
+        courtsList.add(createCourt("Playground One",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
+        lat = 40.711835;
+        lng = -73.984256;
+        description = "One of the city's best-kept secrets. Two full-sized courts with a very clean playing surface. These rims are double rimmed and the trees nearby provide plenty of shade";
+        imageurl = "http://www.dermandar.com/p/bmfiQp";
+        rating = 8.5;
+        fullcourt = true;
+        dlink = "https://citymapper.com/directions?endcoord=40.711835%2C-73.984256&endname=Lillian%20D%20Wald%20Playground";
+        courtsList.add(createCourt("Lillian D Wald Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
+        lat = 40.730348;
+        lng = -73.973605;
+        description = "Located by the FDR Drive, this quiet court has a mini-sized full-court with double rims. This court is missing a 3-point line but has some park benches to rest in between games";
+        imageurl = "http://www.dermandar.com/p/dVKsDz";
+        rating = 4.5;
+        fullcourt = false;
+        dlink = "https://citymapper.com/directions?endcoord=40.730348%2C-73.973605&endname=Murphy%20Brother's%20Playground";
+        courtsList.add(createCourt("Murphy Brother's Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
+        lat = 40.7368811;
+        lng = -73.9756617;
+        description = "Simple Court with just one full-sized full court. Good playing surface and sturdy hoops. The only problem is there are some metal covers on the playing surface inside the three point line that must be hiding some sort of utilities";
+        imageurl = "http://www.dermandar.com/p/dVKsDz";
+        rating = 5;
+        fullcourt = true;
+        dlink = "https://citymapper.com/directions?endcoord=40.7368811%2C-73.9756617&endname=Asser%20Levy%20Playground";
+        courtsList.add(createCourt("Asser Levy Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
     }
 
