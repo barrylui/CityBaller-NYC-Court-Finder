@@ -42,8 +42,6 @@ public class CourtActivity extends AppCompatActivity implements CourtdetailView.
 
     public void onListItemSelectedListener(int number){
             bContent = PanoFragment.newInstance(number);
-        View view = this.getWindow().getDecorView();
-        view.setBackgroundColor(getResources().getColor(R.color.black));
             getSupportFragmentManager().beginTransaction()
             .replace(R.id.container1, bContent).addToBackStack(null)
             .commit();
