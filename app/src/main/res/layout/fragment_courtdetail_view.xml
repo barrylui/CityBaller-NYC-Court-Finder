@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/courtname"
         android:text="DETAILS HERE"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"></TextView>
 
@@ -34,5 +35,23 @@
         android:id="@+id/button2"
         android:layout_below="@+id/courtname"
         android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/dtv"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="88dp" />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:layout_below="@id/button2"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

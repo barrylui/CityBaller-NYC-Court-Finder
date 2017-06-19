@@ -28,6 +28,7 @@ public class CourtData {
         double lng;
         String description;
         String imageurl;
+        double rating;
 
         courtsList = new ArrayList<Map<String, ?>>();
 
@@ -36,30 +37,33 @@ public class CourtData {
         lng = -73.9258333;
         description = "My court";
         imageurl = "http://graphics.wsj.com/brooklyn-best-and-worst-basketball-courts/img/reinaldo.jpg";
-        courtsList.add(createCourt("Reinaldo Salgado Playground",lat,lng,description,imageurl));
+        rating = 4;
+        courtsList.add(createCourt("Reinaldo Salgado Playground",lat,lng,description,imageurl,rating));
 
 
         lat = 40.7148246;
         lng = -73.9895836;
         description = "Seward Park court";
         imageurl = "http://www.dermandar.com/p/bqantM";
-        courtsList.add(createCourt("Seward Park",lat,lng,description,imageurl));
+        courtsList.add(createCourt("Seward Park",lat,lng,description,imageurl,rating));
 
         lat = 40.8122222;
         lng = -73.9463889;
         description = "shitty park";
         imageurl = "http://www.dermandar.com/p/cnVCRl";
-        courtsList.add(createCourt("St. Nicholas Playground North",lat,lng,description,imageurl));
+        rating = 3;
+        courtsList.add(createCourt("St. Nicholas Playground North",lat,lng,description,imageurl,rating));
 
     }
 
-    private HashMap createCourt (String name, double lat, double lng, String description,String imageurl) {
+    private HashMap createCourt (String name, double lat, double lng, String description,String imageurl, double rating) {
         HashMap court = new HashMap();
         court.put("name", name);
         court.put("lat",lat);
         court.put("lng",lng);
         court.put("description", description);
         court.put("imageurl",imageurl);
+        court.put("rating", rating);
         return court;
     }
 

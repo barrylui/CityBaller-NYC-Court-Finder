@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 public class CourtdetailView extends Fragment {
@@ -17,6 +18,8 @@ public class CourtdetailView extends Fragment {
     //private static final String ARG_PARAM2 = "param2";
     private static final String ARG_SECTION_NUMBER = "section_number";
     TextView courtTitle;
+    TextView descrip;
+    RatingBar ratingView;
     CourtData courtData = new CourtData();
 
     // TODO: Rename and change types of parameters
@@ -59,8 +62,16 @@ public class CourtdetailView extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_courtdetail_view, container, false);
 
         courtTitle = (TextView) rootView.findViewById(R.id.courtname);
+        descrip = (TextView) rootView.findViewById(R.id.dtv);
+        ratingView = (RatingBar) rootView.findViewById(R.id.ratingBar);
         final int index = getArguments().getInt(ARG_SECTION_NUMBER);
+
+        double progress = (double) courtData.getItem(index).get("rating");
+        ratingView.setProgress((int)progress);
+
         courtTitle.setText((String)courtData.getItem(index).get("name"));
+        descrip.setText((String)courtData.getItem(index).get("description"));
+
 
         Button directions = (Button) rootView.findViewById(R.id.button);
         Button image = (Button) rootView.findViewById(R.id.button2);
