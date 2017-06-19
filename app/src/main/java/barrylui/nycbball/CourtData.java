@@ -30,6 +30,7 @@ public class CourtData {
         String imageurl;
         double rating;
         boolean fullcourt;
+        String dlink;
 
         courtsList = new ArrayList<Map<String, ?>>();
 
@@ -40,7 +41,8 @@ public class CourtData {
         imageurl = "http://graphics.wsj.com/brooklyn-best-and-worst-basketball-courts/img/reinaldo.jpg";
         rating = 4;
         fullcourt = true;
-        courtsList.add(createCourt("Reinaldo Salgado Playground",lat,lng,description,imageurl,rating, fullcourt));
+        dlink = "https://citymapper.com/directions?endcoord=40.6875%2C-73.9258333&endname=Reinaldo%20Salgado%20Playground";
+        courtsList.add(createCourt("Reinaldo Salgado Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
 
         lat = 40.7148246;
@@ -48,7 +50,8 @@ public class CourtData {
         description = "Seward Park court";
         imageurl = "http://www.dermandar.com/p/bqantM";
         fullcourt = false;
-        courtsList.add(createCourt("Seward Park",lat,lng,description,imageurl,rating, fullcourt));
+        dlink = "https://citymapper.com/directions?endcoord=40.7148246%2C-73.9895836&endname=Seward%20Park";
+        courtsList.add(createCourt("Seward Park",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.8122222;
         lng = -73.9463889;
@@ -56,11 +59,12 @@ public class CourtData {
         imageurl = "http://www.dermandar.com/p/cnVCRl";
         rating = 3;
         fullcourt = true;
-        courtsList.add(createCourt("St. Nicholas Playground North",lat,lng,description,imageurl,rating, fullcourt));
+        dlink = "https://citymapper.com/directions?endcoord=40.8122222%2C-73.9463889&endname=St%20Nicholas%20Playground%20North";
+        courtsList.add(createCourt("St. Nicholas Playground North",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
     }
 
-    private HashMap createCourt (String name, double lat, double lng, String description,String imageurl, double rating, boolean fullcourt) {
+    private HashMap createCourt (String name, double lat, double lng, String description,String imageurl, double rating, boolean fullcourt,String dlink) {
         HashMap court = new HashMap();
         court.put("name", name);
         court.put("lat",lat);
@@ -69,6 +73,7 @@ public class CourtData {
         court.put("imageurl",imageurl);
         court.put("rating", rating);
         court.put("fullcourt", fullcourt);
+        court.put("dlink", dlink);
         return court;
     }
 

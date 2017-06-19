@@ -1,6 +1,7 @@
 package barrylui.nycbball;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ public class CourtActivity extends AppCompatActivity implements CourtdetailView.
     Fragment mContent;
     Fragment bContent;
     int index;
+    CourtData courtData = new CourtData();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         index = getIntent().getIntExtra("position", 1);
@@ -31,10 +33,10 @@ public class CourtActivity extends AppCompatActivity implements CourtdetailView.
     }
 
     public void ondirection(int number){
-        //bContent = PanoFragment.newInstance(number);
-        //getSupportFragmentManager().beginTransaction()
-        //        .replace(R.id.container1, bContent).addToBackStack(null)
-        //        .commit();
+        String url = (String)courtData.getItem(number).get("dlink");
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        startActivity(browserIntent);
+
     }
 
 
