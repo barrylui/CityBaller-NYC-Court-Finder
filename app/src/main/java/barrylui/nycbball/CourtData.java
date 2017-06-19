@@ -29,6 +29,7 @@ public class CourtData {
         String description;
         String imageurl;
         double rating;
+        boolean fullcourt;
 
         courtsList = new ArrayList<Map<String, ?>>();
 
@@ -38,25 +39,28 @@ public class CourtData {
         description = "My court";
         imageurl = "http://graphics.wsj.com/brooklyn-best-and-worst-basketball-courts/img/reinaldo.jpg";
         rating = 4;
-        courtsList.add(createCourt("Reinaldo Salgado Playground",lat,lng,description,imageurl,rating));
+        fullcourt = true;
+        courtsList.add(createCourt("Reinaldo Salgado Playground",lat,lng,description,imageurl,rating, fullcourt));
 
 
         lat = 40.7148246;
         lng = -73.9895836;
         description = "Seward Park court";
         imageurl = "http://www.dermandar.com/p/bqantM";
-        courtsList.add(createCourt("Seward Park",lat,lng,description,imageurl,rating));
+        fullcourt = false;
+        courtsList.add(createCourt("Seward Park",lat,lng,description,imageurl,rating, fullcourt));
 
         lat = 40.8122222;
         lng = -73.9463889;
         description = "shitty park";
         imageurl = "http://www.dermandar.com/p/cnVCRl";
         rating = 3;
-        courtsList.add(createCourt("St. Nicholas Playground North",lat,lng,description,imageurl,rating));
+        fullcourt = true;
+        courtsList.add(createCourt("St. Nicholas Playground North",lat,lng,description,imageurl,rating, fullcourt));
 
     }
 
-    private HashMap createCourt (String name, double lat, double lng, String description,String imageurl, double rating) {
+    private HashMap createCourt (String name, double lat, double lng, String description,String imageurl, double rating, boolean fullcourt) {
         HashMap court = new HashMap();
         court.put("name", name);
         court.put("lat",lat);
@@ -64,6 +68,7 @@ public class CourtData {
         court.put("description", description);
         court.put("imageurl",imageurl);
         court.put("rating", rating);
+        court.put("fullcourt", fullcourt);
         return court;
     }
 

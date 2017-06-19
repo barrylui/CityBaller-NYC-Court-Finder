@@ -25,8 +25,8 @@
         android:text="Directions"
         android:id="@+id/button"
         android:layout_below="@+id/courtname"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"></Button>
+        android:layout_alignLeft="@+id/ratingBar"
+        android:layout_alignStart="@+id/ratingBar"></Button>
 
     <Button
         android:layout_width="wrap_content"
@@ -34,7 +34,8 @@
         android:text="CourtView"
         android:id="@+id/button2"
         android:layout_below="@+id/courtname"
-        android:layout_alignParentRight="true" />
+        android:layout_alignRight="@+id/ratingBar"
+        android:layout_alignEnd="@+id/ratingBar" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,6 +52,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/ratingBar"
         android:layout_below="@id/button2"
+        android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fullcourt"
+        android:id="@+id/checkBox"
+        android:checked="false"
+        android:layout_below="@+id/ratingBar"
         android:layout_centerHorizontal="true" />
 
 
