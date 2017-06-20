@@ -150,8 +150,6 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnInfoWi
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
-        //mMap.addMarker(Rein);
-
         updateLocationUI();
 
         getDeviceLocation();
@@ -165,29 +163,6 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnInfoWi
             mark.setTag(i);
         }
 
-
-        /*c0 = mMap.addMarker(new MarkerOptions()
-                .position(new LatLng((double) courtData.getItem(0).get("lat"), (double) courtData.getItem(0).get("lng")))
-                .title((String) courtData.getItem(0).get("name"))
-                .snippet("Tap for more info")
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.bball)));
-
-
-        c1 = mMap.addMarker(new MarkerOptions()
-                .position(new LatLng((double) courtData.getItem(1).get("lat"), (double) courtData.getItem(1).get("lng")))
-                .title((String) courtData.getItem(1).get("name"))
-                .snippet("Tap for more info")
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.bball)));
-
-
-        c2 = mMap.addMarker(new MarkerOptions()
-                .position(new LatLng((double) courtData.getItem(2).get("lat"), (double) courtData.getItem(2).get("lng")))
-                .title((String) courtData.getItem(2).get("name"))
-                .snippet("Tap for more info")
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.bball)));
-
-                */
-
         mMap.setOnInfoWindowClickListener(this);
 
 
@@ -197,16 +172,10 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnInfoWi
     public void onInfoWindowClick(Marker marker) {
         int in = (Integer)marker.getTag();
 
-        //Intent info = new Intent(this, testclick.class);
         Intent info = new Intent(getBaseContext(), CourtActivity.class);
 
         info.putExtra("position", in);
-        //if (marker == c0){
-        //    info.putExtra("position",0 );
-        //} else if (marker == c1){
-        //    info.putExtra("position", 1);
-        //} else
-        //    info.putExtra("position",2 );
+
         startActivity(info);
     }
 
