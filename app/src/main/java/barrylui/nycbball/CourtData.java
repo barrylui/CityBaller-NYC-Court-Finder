@@ -63,7 +63,7 @@ public class CourtData {
         rating = 3.5;
         fullcourt = true;
         dlink = "https://citymapper.com/directions?endcoord=40.8122222%2C-73.9463889&endname=St%20Nicholas%20Playground%20North";
-        courtsList.add(createCourt("St. Nicholas Playground North",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("ST. NICHOLAS PLAYGROUND NORTH",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.8111111;
         lng = -73.9472222;
@@ -73,26 +73,26 @@ public class CourtData {
         rating = 5.5;
         fullcourt = true;
         dlink = "https://citymapper.com/directions?endcoord=40.8111111%2C-73.9472222&endname=St%20Nicholas%20Playground%20South";
-        courtsList.add(createCourt("St. Nicholas Playground South",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("ST. NICHOLAS PLAYGROUND SOUTH",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.712774;
         lng = -73.991075;
         description = "This very blue-colored court located in Chinatown looks great upon first glance with a nice playing surface and two full courts. " +
-                "The only things that are missing is a 3-point line and some nets for the metal rims";
+                "Its missing a 3-point line and some nets on the hoops";
         imageurl = "http://www.dermandar.com/p/aSmTAt";
         rating = 7;
         fullcourt = true;
         dlink = "https://citymapper.com/directions?endcoord=40.712774%2C-73.991075&endname=Playground%20One";
-        courtsList.add(createCourt("Playground One",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("PLAYGROUND ONE",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.711835;
         lng = -73.984256;
-        description = "One of the city's best-kept secrets. Two full-sized courts with a very clean playing surface. These rims are double rimmed and the trees nearby provide plenty of shade";
+        description = "One of the city's best-kept secrets. Two full-sized courts with a very clean playing surface, the kind of surface that make your sneakers have that crispy squeak with every cut and plant you make. These rims are double rimmed and the trees nearby provide plenty of shade.";
         imageurl = "http://www.dermandar.com/p/bmfiQp";
         rating = 8.5;
         fullcourt = true;
         dlink = "https://citymapper.com/directions?endcoord=40.711835%2C-73.984256&endname=Lillian%20D%20Wald%20Playground";
-        courtsList.add(createCourt("Lillian D Wald Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("LILLIAN D WALD PLAYGROUND",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.730348;
         lng = -73.973605;
@@ -101,7 +101,7 @@ public class CourtData {
         rating = 4.5;
         fullcourt = false;
         dlink = "https://citymapper.com/directions?endcoord=40.730348%2C-73.973605&endname=Murphy%20Brother's%20Playground";
-        courtsList.add(createCourt("Murphy Brother's Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("MURPHY'S BROTHER'S PLAYGROUND",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.7368811;
         lng = -73.9756617;
@@ -110,7 +110,7 @@ public class CourtData {
         rating = 5;
         fullcourt = true;
         dlink = "https://citymapper.com/directions?endcoord=40.7368811%2C-73.9756617&endname=Asser%20Levy%20Playground";
-        courtsList.add(createCourt("Asser Levy Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("ASSER LEVY PLAYGROUND",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.7397222;
         lng = -73.9783333;
@@ -119,7 +119,7 @@ public class CourtData {
         rating = 6.5;
         fullcourt = true;
         dlink = "https://citymapper.com/directions?endcoord=40.7397222%2C-73.9756617&endname=Bellevue%20South%20Park";
-        courtsList.add(createCourt("Bellevue South Park",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("BELLEVUE SOUTH PARK",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.7453796;
         lng = -73.9740275;
@@ -128,7 +128,7 @@ public class CourtData {
         rating = 6.5;
         fullcourt = true;
         dlink = "https://citymapper.com/directions?endcoord=40.7453796%2C-73.9740275&endname=St.%20Vartan%20Park";
-        courtsList.add(createCourt("St. Vartan Park",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("ST. VARTAN PARK",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.7483333;
         lng = -73.9697222;
@@ -137,7 +137,7 @@ public class CourtData {
         rating = 6;
         fullcourt = false;
         dlink = "https://citymapper.com/directions?endcoord=40.7483333%2C-73.9697222&endname=Robert%20Moses%20Playground";
-        courtsList.add(createCourt("Robert Moses Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("ROBERT MOSES PLAYGROUND",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.8136111;
         lng = -73.93861112;
@@ -146,7 +146,7 @@ public class CourtData {
         rating = 7;
         fullcourt = false;
         dlink = "https://citymapper.com/directions?endcoord=40.8136111%2C-73.9386111&endname=Howard%20Bennet%20Playground";
-        courtsList.add(createCourt("Howard Bennett Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("HOWARD BENNETT PLAYGROUND",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.8122222;
         lng = -73.9375;
@@ -155,7 +155,7 @@ public class CourtData {
         rating = 8;
         fullcourt = true;
         dlink = "https://citymapper.com/directions?endcoord=40.8122222%2C-73.9375&endname=Abraham%20Lincoln%20Court";
-        courtsList.add(createCourt("Abraham Lincoln Court",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("ABRAHAM LINCOLN COURT",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.8094444;
         lng = -73.9386111;
@@ -164,7 +164,7 @@ public class CourtData {
         rating = 5;
         fullcourt = false;
         dlink = "https://citymapper.com/directions?endcoord=40.8094444%2C-73.9386111&endname=Moore%20Playground";
-        courtsList.add(createCourt("Moore Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("MOORE PLAYGROUND",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.803232;
         lng = -73.943117;
@@ -173,7 +173,7 @@ public class CourtData {
         rating = 7;
         fullcourt = false;
         dlink = "https://citymapper.com/directions?endcoord=40.803232%2C-73.943117&endname=Marcus%20Garvey%20Playground";
-        courtsList.add(createCourt("Marcus Garvey Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("MARCUS GARVEY PLAYGROUND",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.804333;
         lng = -73.931956;
@@ -182,7 +182,7 @@ public class CourtData {
         rating = 7;
         fullcourt = false;
         dlink = "https://citymapper.com/directions?endcoord=40.804333%2C-73.931956&endname=Crack%20is%20Wack%20Playground";
-        courtsList.add(createCourt("Crack is Wack Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("CRACK IS WACK PLAYGROUND",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.799803;
         lng = -73.934236;
@@ -191,7 +191,7 @@ public class CourtData {
         rating = 3;
         fullcourt = false;
         dlink = "https://citymapper.com/directions?endcoord=40.799803%2C-73.934236&endname=Robert%20Wagner%20Playground";
-        courtsList.add(createCourt("Robert Wagner Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("ROBERT WAGNER PLAYGROUND",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
         lat = 40.797324;
         lng = -73.931159;
@@ -209,7 +209,25 @@ public class CourtData {
         rating = 5;
         fullcourt = false;
         dlink = "https://citymapper.com/directions?endcoord=40.797282%2C-73.935741&endname=PS155%20Playground";
-        courtsList.add(createCourt("PS155 Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("PS155 PLAYGROUND",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
+        lat = 40.797261;
+        lng = -73.942097;
+        description = "A nice, simple, uneven, undersized but shaded full court.";
+        imageurl = "http://www.dermandar.com/p/cQHmdM";
+        rating = 4.5;
+        fullcourt = false;
+        dlink = "https://citymapper.com/directions?endcoord=40.797261%2C-73.942097&endname=James%20Weldon%20Johnson%20Playground";
+        courtsList.add(createCourt("JAMES WELDON JOHNSON",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
+        lat = 40.736049;
+        lng = -73.981893;
+        description = "An hard, rugged concrete yard with a kickball diamond and FIVE hoops to get buckets on!";
+        imageurl = "http://www.dermandar.com/p/dIpvFM";
+        rating = 6;
+        fullcourt = false;
+        dlink = "https://citymapper.com/directions?endcoord=40.736049%2C-73.981893&endname=Peter's%20Field";
+        courtsList.add(createCourt("PETER'S FIELD",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
     }
 

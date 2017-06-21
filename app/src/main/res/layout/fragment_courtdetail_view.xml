@@ -17,13 +17,14 @@
         android:id="@+id/courtname"
         android:text="DETAILS HERE"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="35dp"
+        android:textSize="33dp"
         android:textAlignment="center"
         android:layout_alignTop="@+id/imageView"
         android:layout_toRightOf="@+id/imageView"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentEnd="true"></TextView>
+        android:layout_marginTop="7dp"
+        android:layout_alignParentEnd="true"
+        android:textColor="#79C047"></TextView>
 
     <Button
         android:layout_marginTop="20dp"
@@ -34,7 +35,8 @@
         android:layout_below="@+id/ratingBar"
         android:layout_alignLeft="@+id/imageView"
         android:layout_alignStart="@+id/imageView"
-        android:background="#4caf50"></Button>
+        android:background="#4caf50"
+        android:textSize="18dp"></Button>
 
     <Button
         android:layout_width="160dp"
@@ -45,7 +47,8 @@
         android:layout_alignTop="@+id/button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="#4caf50" />
+        android:background="#4caf50"
+        android:textSize="18dp" />
 
     <TextView
         android:layout_marginLeft="10dp"
@@ -58,7 +61,8 @@
         android:layout_below="@+id/button"
         android:layout_marginTop="35dp"
         android:layout_centerHorizontal="true"
-        android:textAlignment="textStart" />
+        android:textAlignment="textStart"
+        android:textColor="#000000" />
 
     <RatingBar
         android:layout_width="wrap_content"
