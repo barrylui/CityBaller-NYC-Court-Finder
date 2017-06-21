@@ -106,11 +106,38 @@ public class CourtData {
         lat = 40.7368811;
         lng = -73.9756617;
         description = "Simple Court with just one full-sized full court. Good playing surface and sturdy hoops. The only problem is there are some metal covers on the playing surface inside the three point line that must be hiding some sort of utilities";
-        imageurl = "http://www.dermandar.com/p/dVKsDz";
+        imageurl = "http://www.dermandar.com/p/bSFNBo";
         rating = 5;
         fullcourt = true;
         dlink = "https://citymapper.com/directions?endcoord=40.7368811%2C-73.9756617&endname=Asser%20Levy%20Playground";
         courtsList.add(createCourt("Asser Levy Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
+        lat = 40.7397222;
+        lng = -73.9783333;
+        description = "This court has four hoops, the problem is two of the hoops are at the half-court of this full-court. The good news is there are plenty of trees for shade and benches to relax after an afternoon of ballin out";
+        imageurl = "http://www.dermandar.com/p/bWybrF";
+        rating = 6.5;
+        fullcourt = true;
+        dlink = "https://citymapper.com/directions?endcoord=40.7397222%2C-73.9756617&endname=Bellevue%20South%20Park";
+        courtsList.add(createCourt("Bellevue South Park",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
+        lat = 40.7453796;
+        lng =  -73.9740275;
+        description = "A nice park for pick up games by the Midtown Tunnel. There is a nice well-paved court hourt and a half court for working on your game.";
+        imageurl = "http://www.dermandar.com/p/dOHlsy";
+        rating = 6.5;
+        fullcourt = true;
+        dlink = "https://citymapper.com/directions?endcoord=40.7453796%2C-73.9740275&endname=St.%20Vartan%20Park";
+        courtsList.add(createCourt("St. Vartan Park",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
+        lat = 40.7483333;
+        lng =  -73.9697222;
+        description = "This park by the East River and the FDR Drive has one mini-sized full court and two half courts that are beautifully paved. Beware of the half courts if you value your basketball, the fence protecting your ball from bouncing into the FDR Drive or East River isn't very high. ";
+        imageurl = "http://www.dermandar.com/p/apxWEi";
+        rating = 6;
+        fullcourt = false;
+        dlink = "https://citymapper.com/directions?endcoord=40.7483333%2C-73.9697222&endname=Robert%20Moses%20Playground";
+        courtsList.add(createCourt("Robert Moses Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
     }
 

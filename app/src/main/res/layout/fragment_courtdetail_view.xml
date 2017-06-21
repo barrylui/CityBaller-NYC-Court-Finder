@@ -3,10 +3,11 @@
     android:id="@+id/courtdv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:background="#FFFFFF"
     tools:context="barrylui.nycbball.CourtdetailView">
 
     <!-- TODO: Update blank fragment layout -->
@@ -16,56 +17,80 @@
         android:id="@+id/courtname"
         android:text="DETAILS HERE"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:textSize="35dp"
-        android:textAlignment="center"></TextView>
+        android:textAlignment="center"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentEnd="true"></TextView>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="Directions"
         android:id="@+id/button"
         android:layout_below="@+id/ratingBar"
-        android:layout_alignLeft="@+id/ratingBar"
-        android:layout_alignStart="@+id/ratingBar"></Button>
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView"
+        android:background="#4caf50"></Button>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="CourtView"
+        android:text="Court Viewer"
         android:id="@+id/button2"
-        android:layout_below="@+id/ratingBar"
-        android:layout_alignRight="@+id/ratingBar"
-        android:layout_alignEnd="@+id/ratingBar" />
+        android:layout_marginRight="10dp"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="#4caf50" />
 
     <TextView
+        android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="22dp"
         android:text="Medium Text"
         android:id="@+id/dtv"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/button"
+        android:layout_marginTop="35dp"
         android:layout_centerHorizontal="true"
-        android:textAlignment="center" />
+        android:textAlignment="textStart" />
 
     <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ratingBar"
-        android:layout_below="@id/courtname"
-        android:layout_centerHorizontal="true" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fullcourt"
-        android:id="@+id/checkBox"
-        android:checked="false"
-        android:layout_below="@+id/button"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:clickable="false"/>
+        android:isIndicator="true"/>
+
+    <ImageView
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/nycparklogo"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <!--
+       <CheckBox
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Fullcourt"
+           android:id="@+id/checkBox"
+           android:checked="false"
+           android:layout_below="@+id/button"
+           android:layout_centerHorizontal="true"
+           android:layout_marginTop="30dp"
+           android:clickable="false"/>
+           -->
 
 
-</RelativeLayout>
+   </RelativeLayout>

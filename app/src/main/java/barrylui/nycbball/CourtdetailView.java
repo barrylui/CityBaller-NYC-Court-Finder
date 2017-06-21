@@ -1,6 +1,7 @@
 package barrylui.nycbball;
 
 import android.content.Context;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -21,7 +22,7 @@ public class CourtdetailView extends Fragment {
     TextView courtTitle;
     TextView descrip;
     RatingBar ratingView;
-    CheckBox yon;
+    //CheckBox yon;
     CourtData courtData = new CourtData();
 
     // TODO: Rename and change types of parameters
@@ -66,16 +67,16 @@ public class CourtdetailView extends Fragment {
         courtTitle = (TextView) rootView.findViewById(R.id.courtname);
         descrip = (TextView) rootView.findViewById(R.id.dtv);
         ratingView = (RatingBar) rootView.findViewById(R.id.ratingBar);
-        yon = (CheckBox) rootView.findViewById(R.id.checkBox);
+        //yon = (CheckBox) rootView.findViewById(R.id.checkBox);
         final int index = getArguments().getInt(ARG_SECTION_NUMBER);
 
         double progress = (double) courtData.getItem(index).get("rating");
         ratingView.setProgress((int) progress);
 
-        courtTitle.setText((String)courtData.getItem(index).get("name"));
+        courtTitle.setText((String) courtData.getItem(index).get("name"));
         descrip.setText((String)courtData.getItem(index).get("description"));
 
-        yon.setChecked((boolean)courtData.getItem(index).get("fullcourt"));
+        //yon.setChecked((boolean)courtData.getItem(index).get("fullcourt"));
 
 
 
