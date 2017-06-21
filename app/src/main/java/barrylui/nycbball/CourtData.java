@@ -166,6 +166,51 @@ public class CourtData {
         dlink = "https://citymapper.com/directions?endcoord=40.8094444%2C-73.9386111&endname=Moore%20Playground";
         courtsList.add(createCourt("Moore Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
 
+        lat = 40.803232;
+        lng = -73.943117;
+        description = "The court quality is barely above average but this spot gets extra points for its plentiful shade and quick pick up games.";
+        imageurl = "http://www.dermandar.com/p/ekWErp";
+        rating = 7;
+        fullcourt = false;
+        dlink = "https://citymapper.com/directions?endcoord=40.803232%2C-73.943117&endname=Marcus%20Garvey%20Playground";
+        courtsList.add(createCourt("Marcus Garvey Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
+        lat = 40.804333;
+        lng = -73.931956;
+        description = "Crack may be wack, but these courts are dope! Three perfectly paved mini-full courts and a regulation sized full court. Would be a perfect court if not for the lack of shade, lack of nets on the hoops and its fume-sucking location between a Triboro Bridge onramp and offramp.";
+        imageurl = "http://www.dermandar.com/p/aZSoIw";
+        rating = 7;
+        fullcourt = false;
+        dlink = "https://citymapper.com/directions?endcoord=40.804333%2C-73.931956&endname=Crack%20is%20Wack%20Playground";
+        courtsList.add(createCourt("Crack is Wack Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
+        lat = 40.799803;
+        lng = -73.934236;
+        description = "Hidden between a soccer field and a building, this court is hard to find and not worth your time. There is one rickety hoop on an uneven and unpaved surface.";
+        imageurl = "http://www.dermandar.com/p/enQixg";
+        rating = 3;
+        fullcourt = false;
+        dlink = "https://citymapper.com/directions?endcoord=40.799803%2C-73.934236&endname=Robert%20Wagner%20Playground";
+        courtsList.add(createCourt("Robert Wagner Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
+        lat = 40.797324;
+        lng = -73.931159;
+        description = "Theres four half-courts here but they are too jammed close together for them all to be used at once. The plexiglass backboards are a nice touch but the shadeless schoolyard atmosphere... not so much";
+        imageurl = "http://www.dermandar.com/p/dZdGJF";
+        rating = 5;
+        fullcourt = false;
+        dlink = "https://citymapper.com/directions?endcoord=40.797324%2C-73.931159&endname=120th%20&%20FDR";
+        courtsList.add(createCourt("120th & FDR",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
+        lat = 40.797282;
+        lng = -73.935741;
+        description = "This schoolyard playground has plenty of courts to choose from with one mini-full court and three half courts";
+        imageurl = "http://www.dermandar.com/p/ejrqpE";
+        rating = 5;
+        fullcourt = false;
+        dlink = "https://citymapper.com/directions?endcoord=40.797282%2C-73.935741&endname=PS155%20Playground";
+        courtsList.add(createCourt("PS155 Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+
     }
 
     private HashMap createCourt (String name, double lat, double lng, String description,String imageurl, double rating, boolean fullcourt,String dlink) {
