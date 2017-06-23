@@ -35,16 +35,15 @@ public class CourtData {
         courtsList = new ArrayList<Map<String, ?>>();
 
 
-        /*lat = 40.6875;
+        lat = 40.6875;
         lng = -73.9258333;
         description = "My court";
         imageurl = "http://graphics.wsj.com/brooklyn-best-and-worst-basketball-courts/img/reinaldo.jpg";
         rating = 4;
-        fullcourt = true;
         dlink = "https://citymapper.com/directions?endcoord=40.6875%2C-73.9258333&endname=Reinaldo%20Salgado%20Playground";
-        courtsList.add(createCourt("Reinaldo Salgado Playground",lat,lng,description,imageurl,rating, fullcourt,dlink));
+        courtsList.add(createCourt("Reinaldo Salgado Playground",lat,lng,description,imageurl,rating,dlink));
 
-
+        /*
         lat = 40.7148246;
         lng = -73.9895836;
         description = "Seward Park court";
