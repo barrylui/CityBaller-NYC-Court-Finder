@@ -5,11 +5,20 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -26,7 +35,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements GoogleMap.OnInfoWindowClickListener, OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class MapsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, GoogleMap.OnInfoWindowClickListener, OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleMap mMap;
     private CameraPosition mCameraPosition;
@@ -44,9 +53,7 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnInfoWi
     private static final String KEY_CAMERA_POSITION = "camera_position";
     private static final String KEY_LOCATION = "location";
 
-    private Marker c0;
-    private Marker c1;
-    private Marker c2;
+    DrawerLayout drawerLayout;
 
     CourtData courtData = new CourtData();
 
@@ -65,6 +72,30 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnInfoWi
 
 
         setContentView(R.layout.activity_maps);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view1);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer1);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,  R.string.open_drawer, R.string.close_drawer)
+        {
+            @Override
+            public void onDrawerClosed(View drawerView){
+                super.onDrawerClosed(drawerView);
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
+        };
+
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
 
         //Rein = new MarkerOptions()
                // .position(new LatLng(40.6875, -73.9258333))
@@ -101,6 +132,23 @@ public class MapsActivity extends FragmentActivity implements GoogleMap.OnInfoWi
             outState.putParcelable(KEY_LOCATION, mLastKnownLocation);
             super.onSaveInstanceState(outState);
         }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.item1:
+                drawerLayout.closeDrawer(GravityCompat.START);
+                break;
+            case R.id.item2:
+                Intent courtRecycleView = new Intent(this, CourtsRecycleView.class);
+                this.startActivity(courtRecycleView);
+                drawerLayout.closeDrawer(GravityCompat.START);
+            default:
+        }
+
+        return true;
     }
 
     /**
