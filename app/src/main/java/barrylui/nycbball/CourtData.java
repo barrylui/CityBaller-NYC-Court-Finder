@@ -240,7 +240,7 @@ public class CourtData {
         description = "A regulation sized full court and a half court right behind it. The metal rims give it that old school city feel to the court and being next to the FDR gives you great views of Brooklyn and Queens along with that fishy breeze from the East River.";
         imageurl = "http://www.dermandar.com/p/bFncjh";
         rating = 6;
-        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Dry%20Dock%20Playground";
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=East%20River%20Park";
         courtsList.add(createCourt("East River Park",lat,lng,description,imageurl,rating,dlink));
 
         lat = 40.717079;
