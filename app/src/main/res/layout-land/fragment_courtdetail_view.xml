@@ -8,7 +8,7 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     tools:context="barrylui.nycbball.CourtdetailView"
-    android:background="#7AC142">
+    android:background="#068B35">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -19,12 +19,11 @@
         android:text="DETAILS HERE"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="33dp"
-        android:gravity="center"
         android:textColor="#ffffff"
+        android:layout_marginTop="5dp"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"></TextView>
+        android:layout_alignLeft="@+id/ratingBar"
+        android:layout_alignStart="@+id/ratingBar"></TextView>
 
     <Button
         android:layout_marginRight="15dp"
@@ -32,7 +31,7 @@
         android:layout_height="wrap_content"
         android:text="Directions"
         android:id="@+id/button"
-        android:background="#0A6742"
+        android:background="#00531C"
         android:textSize="18dp"
         android:textColor="#ffffff"
         android:layout_alignTop="@+id/button2"
@@ -45,7 +44,7 @@
         android:layout_height="wrap_content"
         android:text="Court Viewer"
         android:id="@+id/button2"
-        android:background="#0A6742"
+        android:background="#00531C"
         android:textSize="18dp"
         android:textColor="#ffffff"
         android:layout_below="@id/ratingBar"
@@ -62,7 +61,7 @@
         android:textColor="#ffffff"
         android:layout_marginTop="30dp"
         android:layout_alignParentBottom="true"
-        android:background="#0A6742"
+        android:background="#00531C"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
@@ -83,7 +82,7 @@
         android:layout_width="159dp"
         android:layout_height="150dp"
         android:id="@+id/imageView"
-        android:src="@drawable/atom1"
+        android:src="@drawable/atom2"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_alignParentTop="true"

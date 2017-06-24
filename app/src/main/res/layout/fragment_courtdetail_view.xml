@@ -8,7 +8,7 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     tools:context="barrylui.nycbball.CourtdetailView"
-    android:background="#7AC142">
+    android:background="#068B35">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -35,7 +35,7 @@
         android:layout_below="@+id/ratingBar"
         android:layout_alignLeft="@+id/imageView"
         android:layout_alignStart="@+id/imageView"
-        android:background="#0A6742"
+        android:background="#00531C"
         android:textSize="18dp"
         android:textColor="#ffffff"></Button>
 
@@ -48,7 +48,7 @@
         android:layout_alignTop="@+id/button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:background="#0A6742"
+        android:background="#00531C"
         android:textSize="18dp"
         android:textColor="#ffffff" />
 
@@ -64,7 +64,7 @@
         android:gravity="center"
         android:textColor="#ffffff"
         android:layout_alignParentBottom="true"
-        android:background="#0A6742"
+        android:background="#00531C"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
@@ -84,7 +84,7 @@
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:id="@+id/imageView"
-        android:src="@drawable/atom1"
+        android:src="@drawable/atom2"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_alignParentTop="true"
