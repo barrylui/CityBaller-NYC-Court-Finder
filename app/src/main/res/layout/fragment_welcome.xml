@@ -3,23 +3,30 @@
     android:layout_height="match_parent"
     android:id="@+id/welcome"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:paddingRight="16dp"
+    android:background="#ffffff">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Looking for a pickup game? Don't know where to go? CityBaller is here to help you find public outdoor basketball courts in Manhattan. "
-        />
 
     <TextView
+        android:layout_marginTop="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Each court has a rating and a small blurb about the court. Catch a quick glimpse of the court by viewing Panoramic images in the app and receive transit directions with a push of a button to help you get there."
+        android:text="Welcome to CityBaller! This app will help you find public outdoor basketball courts in Manhattan. Catch a quick glimpse of the court by viewing Panoramic images in the app. Get directions to any court by receiving transit directions with a push of a button"
         android:id="@+id/textView"
-        android:layout_centerVertical="true"
+        android:textSize="18dp"
+        android:gravity="center"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:src="@drawable/cityballergreen"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:gravity="center"/>
+        android:layout_marginTop="41dp" />
 
 
 </RelativeLayout>

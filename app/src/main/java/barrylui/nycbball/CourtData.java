@@ -356,7 +356,7 @@ public class CourtData {
 
         lat = 40.788594;
         lng = -73.944313;
-        description = "Two decent full-courts with fading floor paint at the edge of East Harlem.";
+        description = "Located at the edge of East Harlem. Theres two decent full-courts with fading floor paint";
         imageurl = "http://www.dermandar.com/p/dJAtSA";
         rating = 6;
         dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Blake%20Hobbs%20Playground";
@@ -370,7 +370,7 @@ public class CourtData {
         dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=White%20Playground";
         courtsList.add(createCourt("White Playground",lat,lng,description,imageurl,rating,dlink));
 
-        
+
 
         lat = 40.792744;
         lng = -73.943283;
