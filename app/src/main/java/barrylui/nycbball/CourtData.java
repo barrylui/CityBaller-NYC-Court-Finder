@@ -258,6 +258,157 @@ public class CourtData {
         dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Hamilton%20Fish%20Park";
         courtsList.add(createCourt("Hamilton Fish Park",lat,lng,description,imageurl,rating,dlink));
 
+        lat = 40.721653;
+        lng = -73.986029;
+        description = "Two half courts jammed into a kid's playground. One court is placed too close to a fence making the right corner 3 impossible. A typical court on a playground, Unpaved floors and old metal rims.";
+        imageurl = "http://www.dermandar.com/p/aBgKdm";
+        rating = 4;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=ABC%20Playground";
+        courtsList.add(createCourt("ABC Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.724087;
+        lng = -73.985760;
+        description = "An ordinary school yard with two full courts. The paved floors are fading and the ground has this layer of dust that accumulates on your ball as you bounce it more and more here.";
+        imageurl = "http://www.dermandar.com/p/buyUKk";
+        rating = 5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=McKinley%20Playground";
+        courtsList.add(createCourt("McKinley Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.723416;
+        lng = -73.989270;
+        description = "A basketball hoop in a handball court? Good luck trying to shoot around or running a game while there are handballs flying around";
+        imageurl = "http://www.dermandar.com/p/dlYvcK";
+        rating = 3.5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=First%20Park";
+        courtsList.add(createCourt("First Park",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.722127;
+        lng = -73.991368;
+        description = "Two full courts with plexi glass backboards and nice rims. The court is beautifully paved too. One of the nicest courts on the LES. Did I mention there are more of the same type of courts on the park's south end?";
+        imageurl = "http://www.dermandar.com/p/etOzOL";
+        rating = 7.5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Sara%20D%20Roosevelt%20North";
+        courtsList.add(createCourt("Sara D Roosevelt North",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.722104;
+        lng = -73.991391;
+        description = "Adequete full courts with plexi glass. The courts of fine but out of the three courts in Sara D Roosevelt, this is the least charming. Why play here when there are better options down the block?";
+        imageurl = "http://www.dermandar.com/p/dIgudx";
+        rating = 6;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Sara%20D%20Roosevelt%20Middle";
+        courtsList.add(createCourt("Sara D Roosevelt Middle",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.717539;
+        lng = -73.993698;
+        description = "One of the most enjoyable places to play ball in Chinatown. Theres shade and pick up games for every skill level imaginable, not to mention cheap Chinese food a half-court shot away.";
+        imageurl = "http://www.dermandar.com/p/cKQDMA";
+        rating = 8.5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Sara%20D%20Roosevelt%20South";
+        courtsList.add(createCourt("Sara D Roosevelt South",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.725204;
+        lng = -74.002668;
+        description = "Theres only one court and its on a handball court. Meh.";
+        imageurl = "http://www.dermandar.com/p/buhncO";
+        rating = 3.5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Vesuvio%20Playground";
+        courtsList.add(createCourt("Vesuvio Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.721675;
+        lng = -73.996134;
+        description = "I can't help but to get prison court vibes with the concrete walls surrounding this half court. Cool spot to play around with your buddies, but not so much for good pick up games.";
+        imageurl = "http://www.dermandar.com/p/dJvUOJ";
+        rating = 4.5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=DeSalvio%20Playground";
+        courtsList.add(createCourt("DeSalvio Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.714357;
+        lng = -73.999786;
+        description = "Another hotspot for Chinatown basketball. There's one full court and a half court on one-side of the park. The half court by the full court isn't on a flat level ground. Theres three half courts on the other side too.";
+        imageurl = "http://www.dermandar.com/p/dLYKfe";
+        rating = 8.5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=DeSalvio%20Playground";
+        courtsList.add(createCourt("DeSalvio Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.717048;
+        lng = -74.012039;
+        description = "Simple park with one full court and one half court. Well-paved, plexi glass rims, a good spot to run a couple of pick up games. If only there were a little shade";
+        imageurl = "http://www.dermandar.com/p/eiCowx";
+        rating = 8;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Washington%20Square%20Park";
+        courtsList.add(createCourt("Washington Square Park",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.791042;
+        lng = -73.959792;
+        description = "Ballin in Central Park! These crowded courts close around 5-6pm so get there early if you want to run a couple of games. 3 Full courts with small backboards and adequete rims.";
+        imageurl = "http://www.dermandar.com/p/dqhbqE";
+        rating = 8;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=North%20Meadow";
+        courtsList.add(createCourt("North Meadow",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.787329;
+        lng = -73.947064;
+        description = "Three beautifully paved full-courts with solid backboards and rims. The trees surrounding the park provides lots of shades too! One of the best places to ball in the neighborhood.";
+        imageurl = "http://www.dermandar.com/p/abgMlp";
+        rating = 8;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Cherry%20Tree";
+        courtsList.add(createCourt("Cherry Tree",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.788594;
+        lng = -73.944313;
+        description = "Two decent full-courts with fading floor paint at the edge of East Harlem.";
+        imageurl = "http://www.dermandar.com/p/dJAtSA";
+        rating = 6;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Blake%20Hobbs%20Playground";
+        courtsList.add(createCourt("Blake Hobbs Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.791707;
+        lng = -73.945810;
+        description = "Two well-paved and regulation sized full-courts. The windowless building next to the court can be a little depressing but it provides a nice wall to practice your passing.";
+        imageurl = "http://www.dermandar.com/p/csCbXQ";
+        rating = 6;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=White%20Playground";
+        courtsList.add(createCourt("White Playground",lat,lng,description,imageurl,rating,dlink));
+
+        
+
+        lat = 40.792744;
+        lng = -73.943283;
+        description = "Two ordinary full-courts with decent rims. Seems adequete at first glance but upon closer inspection, the floors are not level and sloped. If you can ignore the sloped floors and busy Third Avenue Traffic this court will suit you just fine.";
+        imageurl = "http://www.dermandar.com/p/anIKBa";
+        rating = 6;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Poor%20Richards";
+        courtsList.add(createCourt("Poor Richards",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.793336;
+        lng = -73.933957;
+        description = "Two well-paved, regulation sized courts with endless amounts of shade. This park has a nice ambiance to it with the FDR Drive, nearby pool, little league games and barbecues.";
+        imageurl = "http://www.dermandar.com/p/aoNtyj";
+        rating = 8;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Thomas%20Jefferson%20Park";
+        courtsList.add(createCourt("Thomas Jefferson Park",lat,lng,description,imageurl,rating,dlink));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
