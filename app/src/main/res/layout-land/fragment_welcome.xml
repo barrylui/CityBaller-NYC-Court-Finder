@@ -19,14 +19,15 @@
 
 
     <TextView
-        android:layout_marginTop="20dp"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Each court has a rating and a small blurb about the court. Catch a quick glimpse of the court by viewing Panoramic images in the app and receive transit directions with a push of a button to help you get there."
-        android:id="@+id/textView"
         android:layout_below="@id/imageView3"
         android:layout_centerHorizontal="true"
-        android:gravity="center"/>
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Welcome to CityBaller! This app will help you find public outdoor basketball courts in Manhattan. Catch a quick glimpse of the court by viewing Panoramic images in the app. Get directions to any court by receiving transit directions with a push of a button"
+        android:textColor="#000000" />
 
 
 
