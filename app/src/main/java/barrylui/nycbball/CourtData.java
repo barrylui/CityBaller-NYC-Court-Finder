@@ -651,13 +651,174 @@ public class CourtData {
 
         lat = 40.829457;
         lng = -73.936449;
-        description = "The world's most famous outdoor court in the world, the Rucker. It may be hard to get on the court in between league play but the regulation sized full court has a nice hardwood surface and the rims and backboard are as nice as it gets. There's seating and a huge scoreboard surrounding the court.";
+        description = "The world's most famous outdoor court, the Rucker. It may be hard to get on the court in between league play but the regulation sized full court has a nice hardwood surface and the rims and backboard are as nice as it gets. There's seating and a huge scoreboard surrounding the court.";
         imageurl = "http://www.dermandar.com/p/dyjPhv";
         rating = 10;
         dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Rucker%20Park";
         courtsList.add(createCourt("Rucker Park",lat,lng,description,imageurl,rating,dlink));
 
 
+        lat = 40.826726;
+        lng = -73.940712;
+        description = "This full court looks pretty good, its floors are well paved and not cracked. Unfortunately its pretty quiet here and not a court where you walk up and get next.";
+        imageurl = "http://www.dermandar.com/p/bVxWCr";
+        rating = 5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Jackie%20Robinson%20Playground";
+        courtsList.add(createCourt("Jackie Robinson Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.829465;
+        lng = -73.944183;
+        description = "There's eight baskets here! Perfect place to work on your game. One mini-full court with a 3 point line but unpainted. The other 6 baskets surround the court so it's pretty fun to chase a long rebound and let it fly on the other baskets.";
+        imageurl = "http://www.dermandar.com/p/bzpjrn";
+        rating = 6;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Carmansville%20Playground";
+        courtsList.add(createCourt("Carmansville Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.758946;
+        lng = -73.991057;
+        description = "An underated park to play ball at. Theres only one mini full court but the court is in pretty good shape and is the host of many pickup games.";
+        imageurl = "http://www.dermandar.com/p/eWeHaz";
+        rating = 6;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=McCaffrey%20Playground";
+        courtsList.add(createCourt("McCaffrey Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.761517;
+        lng = -73.989299;
+        description = "This court has it all, plexi glass rims, painted floors and a busy pick up scene. If you're in the neighborhood this court is definately worth checking out.";
+        imageurl = "http://www.dermandar.com/p/balWhW";
+        rating = 6;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Ramon%20Aponte%20Park";
+        courtsList.add(createCourt("Ramon Aponte Park",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.761479;
+        lng = -73.992550;
+        description = "This court has a strange full court that is weirdly narrow and the half courts are unmarked. Its pretty shady here and theres a wall to practice your passing.";
+        imageurl = "http://www.dermandar.com/p/ejvHWo";
+        rating = 6;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Matthew%20Palmer%20Playground";
+        courtsList.add(createCourt("Matthew Palmer Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.763026;
+        lng = -73.992644;
+        description = "What you see is what you get : Two hoops and two free throw lines.";
+        imageurl = "http://www.dermandar.com/p/brvBsK";
+        rating = 4;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Hell's%20Kitchen%20Park";
+        courtsList.add(createCourt("Hell's Kitchen Park",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.763499;
+        lng = -73.990213;
+        description = "Right in the heart of city in midtown Manhattan. Three full courts that need a new paint job.";
+        imageurl = "http://www.dermandar.com/p/acwITT";
+        rating = 6;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Guttenburg%20Playground";
+        courtsList.add(createCourt("Guttenberg Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.768494;
+        lng = -73.994867;
+        description = "Jackpot!!! Get here now! Two full sized courts that are freshly painted, plexi glass rims and a lively pick-up scene.";
+        imageurl = "http://www.dermandar.com/p/aNZrHP";
+        rating = 8.5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=De%20Witt%20Clinton%20Park";
+        courtsList.add(createCourt("De Witt Clinton Park ",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.773889;
+        lng = -73.986811;
+        description = "There's a full court here but only one hoop. At least the floor is nicely painted and the backboards are nice. Nothing much here though.";
+        imageurl = "http://www.dermandar.com/p/cAGuyd";
+        rating = 4;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Samuel%20Bennerson%20Playground";
+        courtsList.add(createCourt("Samuel Bennerson Playground",lat,lng,description,imageurl,rating,dlink));
+
+
+        lat = 40.777221;
+        lng = -73.983656;
+        description = "There's one full court with a smooth surface. Theres a good pick-up scene here and there's a half-court that is perfect to shoot around when you call next and you're waiting to get on.";
+        imageurl = "http://www.dermandar.com/p/cBUOIq";
+        rating = 6.5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Sapolin%20Playground";
+        courtsList.add(createCourt("Sapolin Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.783115;
+        lng = -73.985023;
+        description = "Two full courts and two half courts. The riverside vibes and shade give this busy park a nice touch";
+        imageurl = "http://www.dermandar.com/p/cHkvpk";
+        rating = 7;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Riverside%20Park";
+        courtsList.add(createCourt("76th Street Riverside Park",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.781656;
+        lng = -73.978272;
+        description = "Three plexi glass backboards! Too bad they're too close to each other and there's no three-point line or people who play here. This place is good for solo free throw practice but theres better places to ball on the UWS";
+        imageurl = "http://www.dermandar.com/p/ejDIVq";
+        rating = 5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Tecumseh%20Playground";
+        courtsList.add(createCourt("Tecumseh Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.7895908;
+        lng = -73.9689129;
+        description = "The three point lines here are way too close. There's only two half hourts here in this unimpressive school yard.";
+        imageurl = "http://www.dermandar.com/p/dhZNzJ";
+        rating = 4;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Sol%20Boom%20Playground";
+        courtsList.add(createCourt("Sol Boom Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.795445;
+        lng = -73.9689622;
+        description = "Theres four high quality mini-sized full courts here. The skill level here in this busy park is pretty good here so bring your A game.";
+        imageurl = "http://www.dermandar.com/p/ackLiq";
+        rating = 7.5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Happy%20Warrior%20Playground";
+        courtsList.add(createCourt("Happy Warrior Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.796904;
+        lng = -73.9683522;
+        description = "This court can be an overlooked option with its unpainted and undersized full court, but the smooth surface and shady setting are it's redeeming qualities.";
+        imageurl = "http://www.dermandar.com/p/bIOpWJ";
+        rating = 5.5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=X%20X%20Playground";
+        courtsList.add(createCourt("Frederick Douglass Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.799081;
+        lng = -73.965878;
+        description = "All six of these half courts are unpainted and unimpressive. The floor is also cracked in a bunch of different spots too.";
+        imageurl = "http://www.dermandar.com/p/cQrjiB";
+        rating = 4.5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Bloomingdale%20Playground";
+        courtsList.add(createCourt("Bloomingdale Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.801185;
+        lng = -73.964057;
+        description = "The paint is old and the floor is cracked but this mini sized full court is a solid option with its nice rims.";
+        imageurl = "http://www.dermandar.com/p/asltur";
+        rating = 4.5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Booker%20T%20Washington%20Playground";
+        courtsList.add(createCourt("Booker T. Washington Playground",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.7823379;
+        lng = -73.9651196;
+        description = "Pick-up ball in the heart of the city! There's two mini size full courts here and plenty of shade.";
+        imageurl = "http://www.dermandar.com/p/bRFDzN";
+        rating = 8;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Great%20Lawn%20Courts";
+        courtsList.add(createCourt("Great Lawn Courts",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.803084;
+        lng =  -73.958850;
+        description = "Theres so many things that suck about this court. Old rim, fading lines, unpainted and unfenced meaning you're going to chase a lot of long rebounds.";
+        imageurl = "http://www.dermandar.com/p/brSrkK";
+        rating = 3;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Morningside%20Park%20South";
+        courtsList.add(createCourt("Morningside Park South",lat,lng,description,imageurl,rating,dlink));
+
+        lat = 40.803084;
+        lng = -73.958850;
+        description = "A quiet park with two full courts and one half court. There's an extra backboard here but it is missing a rim.";
+        imageurl = "http://www.dermandar.com/p/cnIWbi";
+        rating = 3.5;
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Morningside%20Park%20Central";
+        courtsList.add(createCourt("Morningside Park Central",lat,lng,description,imageurl,rating,dlink));
+/*
         lat = ;
         lng = ;
         description = "";
@@ -698,62 +859,13 @@ public class CourtData {
         dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=X%20X%20Playground";
         courtsList.add(createCourt("Park Playground",lat,lng,description,imageurl,rating,dlink));
 
-        lat = ;
+                lat = ;
         lng = ;
         description = "";
         imageurl = "";
         rating = ;
         dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=X%20X%20Playground";
         courtsList.add(createCourt("Park Playground",lat,lng,description,imageurl,rating,dlink));
-
-        lat = ;
-        lng = ;
-        description = "";
-        imageurl = "";
-        rating = ;
-        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=X%20X%20Playground";
-        courtsList.add(createCourt("Park Playground",lat,lng,description,imageurl,rating,dlink));
-
-        lat = ;
-        lng = ;
-        description = "";
-        imageurl = "";
-        rating = ;
-        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=X%20X%20Playground";
-        courtsList.add(createCourt("Park Playground",lat,lng,description,imageurl,rating,dlink));
-
-        lat = ;
-        lng = ;
-        description = "";
-        imageurl = "";
-        rating = ;
-        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=X%20X%20Playground";
-        courtsList.add(createCourt("Park Playground",lat,lng,description,imageurl,rating,dlink));
-
-        lat = ;
-        lng = ;
-        description = "";
-        imageurl = "";
-        rating = ;
-        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=X%20X%20Playground";
-        courtsList.add(createCourt("Park Playground",lat,lng,description,imageurl,rating,dlink));
-
-        lat = ;
-        lng = ;
-        description = "";
-        imageurl = "";
-        rating = ;
-        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=X%20X%20Playground";
-        courtsList.add(createCourt("Park Playground",lat,lng,description,imageurl,rating,dlink));
-
-        lat = ;
-        lng = ;
-        description = "";
-        imageurl = "";
-        rating = ;
-        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=X%20X%20Playground";
-        courtsList.add(createCourt("Park Playground",lat,lng,description,imageurl,rating,dlink));
-
 
         lat = ;
         lng = ;
