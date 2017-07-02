@@ -69,7 +69,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:paddingBottom="2dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:paddingTop="2dp"/>
 
     <RatingBar
         android:layout_width="wrap_content"
