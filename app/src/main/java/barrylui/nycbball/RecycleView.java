@@ -1,6 +1,7 @@
 package barrylui.nycbball;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -79,7 +80,9 @@ public class RecycleView extends Fragment {
         mRecyclerViewAdapter.SetOnItemClickListener(new MyRecycleViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                mListener.onFragmentInteraction(position);
+                Intent info = new Intent(getContext(), CourtActivity.class);
+                info.putExtra("position", position);
+                startActivity(info);
 
             }
 
