@@ -207,9 +207,16 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
             Marker mark = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng((double) courtData.getItem(i).get("lat"), (double) courtData.getItem(i).get("lng")))
                     .title(name)
-                    .snippet("Tap for more info")
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.bball)));
+                    .snippet("Tap for more info"));
             mark.setTag(i);
+            String val = (String)courtData.getItem(i).get("rating");
+            int rate = Integer.parseInt(val);
+            if (rate < 4){
+                mark.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.blackball));
+            } else if (rate < 7){
+                mark.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.blueball));
+            } else
+                mark.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.bball));
         }
 
         mMap.setOnInfoWindowClickListener(this);

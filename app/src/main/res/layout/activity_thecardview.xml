@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -14,14 +15,14 @@
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/circ"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginLeft="5dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
@@ -33,17 +34,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@id/circ"
+                android:layout_toLeftOf="@id/circ"
+                android:layout_marginLeft="8dp"
                 android:textColor="#000000"
-                android:textSize="17dp" />
+                android:textSize="18dp"
+                android:layout_toRightOf="@+id/circ"
+                android:layout_toEndOf="@+id/circ" />
+
             <RatingBar
+                android:id="@+id/ratingBar1"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="?android:attr/ratingBarStyleSmall"
-                android:id="@+id/ratingBar1"
-                android:layout_below="@id/title1"
-                android:layout_alignLeft="@id/title1"
-                android:isIndicator="true" />
+                android:layout_alignBottom="@id/circ"
+                android:layout_toRightOf="@id/circ"
+                android:isIndicator="true"
+                android:theme="@style/RatingBar" />
 
 
         </RelativeLayout>

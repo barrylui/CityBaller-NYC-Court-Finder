@@ -7,4 +7,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="RatingBar" parent="android:Widget.Material.RatingBar.Indicator">
+        <item name="colorControlNormal">#DCDCDC</item>
+        <item name="colorControlActivated">#00AFF0</item>
+    </style>
+
 </resources>

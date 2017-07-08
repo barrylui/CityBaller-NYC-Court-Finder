@@ -68,7 +68,8 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
         public CircleImageView cImage;
 
         public void bindMovieData(Map<String, ?> movie) {
-            vTitle.setText((String) movie.get("name"));
+            String title = (String) movie.get("name");
+            vTitle.setText(title);
             String progress = (String) movie.get("rating");
             double val = Double.valueOf(progress);
             int rate = (int)val;
