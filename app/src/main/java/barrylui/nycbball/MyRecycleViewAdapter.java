@@ -1,15 +1,19 @@
 package barrylui.nycbball;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.List;
 import java.util.Map;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdapter.ViewHolder> {
     private List<Map<String, ?>> mDataset;
@@ -60,18 +64,33 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView vTitle;
-        public TextView vDescription;
-        public ImageView vMenu;
+        public RatingBar ratingView;
+        public CircleImageView cImage;
 
         public void bindMovieData(Map<String, ?> movie) {
             vTitle.setText((String) movie.get("name"));
-            vDescription.setText((String) movie.get("description"));
+            String progress = (String) movie.get("rating");
+            double val = Double.valueOf(progress);
+            int rate = (int)val;
+            ratingView.setProgress(rate);
+
+            if(rate < 4)
+            {
+                cImage.setBackgroundResource(R.drawable.onetofour);
+            }
+            else if (rate < 7)
+            {
+                cImage.setBackgroundResource(R.drawable.fourtosix);
+            }
+            else
+                cImage.setBackgroundResource(R.drawable.seventoten);
         }
 
         public ViewHolder(View v) {
             super(v);
             vTitle = (TextView) v.findViewById(R.id.title1);
-            vDescription = (TextView) v.findViewById(R.id.description1);
+            ratingView = (RatingBar) v.findViewById(R.id.ratingBar1);
+            cImage = (CircleImageView) v.findViewById(R.id.circ);
 
 
             v.setOnClickListener(new View.OnClickListener() {

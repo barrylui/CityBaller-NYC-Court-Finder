@@ -70,8 +70,9 @@ public class CourtdetailView extends Fragment {
         //yon = (CheckBox) rootView.findViewById(R.id.checkBox);
         final int index = getArguments().getInt(ARG_SECTION_NUMBER);
 
-        double progress = (double) courtData.getItem(index).get("rating");
-        ratingView.setProgress((int) progress);
+        String progress = (String) courtData.getItem(index).get("rating");
+        int val = Integer.parseInt(progress);
+        ratingView.setProgress(val);
 
         courtTitle.setText((String) courtData.getItem(index).get("name"));
         descrip.setText((String)courtData.getItem(index).get("description"));
