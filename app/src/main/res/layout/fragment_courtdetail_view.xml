@@ -83,7 +83,7 @@
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
         android:isIndicator="true"
-        android:theme="@style/RatingBar"/>
+        android:theme="@style/BlueBar"/>
 
     <ImageView
         android:layout_width="125dp"

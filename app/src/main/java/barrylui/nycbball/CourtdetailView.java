@@ -77,8 +77,6 @@ public class CourtdetailView extends Fragment {
         courtTitle.setText((String) courtData.getItem(index).get("name"));
         descrip.setText((String)courtData.getItem(index).get("description"));
 
-        //yon.setChecked((boolean)courtData.getItem(index).get("fullcourt"));
-
 
 
 

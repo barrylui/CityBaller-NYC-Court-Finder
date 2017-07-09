@@ -7,9 +7,16 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="RatingBar" parent="android:Widget.Material.RatingBar.Indicator">
+    <style name="BlueBar" parent="android:Widget.Material.RatingBar.Indicator">
         <item name="colorControlNormal">#DCDCDC</item>
         <item name="colorControlActivated">#00AFF0</item>
     </style>
+
+    <style name="GreenBar" parent="android:Widget.Material.RatingBar.Indicator">
+        <item name="colorControlNormal">#DCDCDC</item>
+        <item name="colorControlActivated">#169B33</item>
+    </style>
+
+
 
 </resources>

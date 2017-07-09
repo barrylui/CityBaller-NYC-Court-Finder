@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+
 import java.util.List;
 import java.util.Map;
 
@@ -77,14 +79,14 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
 
             if(rate < 4)
             {
-                cImage.setBackgroundResource(R.drawable.onetofour);
+                cImage.setImageResource(R.drawable.onetofour);
             }
             else if (rate < 7)
             {
-                cImage.setBackgroundResource(R.drawable.fourtosix);
+                cImage.setImageResource(R.drawable.fourtosix);
             }
             else
-                cImage.setBackgroundResource(R.drawable.seventoten);
+                cImage.setImageResource(R.drawable.seventoten);
         }
 
         public ViewHolder(View v) {
