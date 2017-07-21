@@ -30,8 +30,8 @@
                 android:layout_alignParentTop="true"
                 app:civ_border_width="1dp"
                 />
-
             <TextView
+                android:layout_marginTop="3dp"
                 android:id="@+id/title1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,6 +43,14 @@
                 android:layout_toRightOf="@+id/circ"
                 android:layout_toEndOf="@+id/circ" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/distance"
+                android:layout_below="@id/title1"
+                android:layout_toRightOf="@id/circ"
+                android:textColor="#ffffff"/>
+
             <RatingBar
                 android:id="@+id/ratingBar1"
                 style="@style/Widget.AppCompat.RatingBar.Indicator"
@@ -51,7 +59,7 @@
                 android:layout_alignBottom="@id/circ"
                 android:layout_toRightOf="@id/circ"
                 android:isIndicator="true"
-                android:theme="@style/GreenBar" />
+                android:theme="@style/BlueBar" />
 
 
         </RelativeLayout>

@@ -33,13 +33,13 @@
         android:id="@+id/button"
         android:background="#00531C"
         android:textSize="18dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/ratingBar"
+        android:layout_toRightOf="@id/imageView"
         android:textColor="#ffffff"
-        android:layout_alignTop="@+id/button2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"></Button>
+></Button>
 
     <Button
-        android:layout_marginLeft="10dp"
         android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:text="Court Viewer"
@@ -47,8 +47,10 @@
         android:background="#00531C"
         android:textSize="18dp"
         android:textColor="#ffffff"
-        android:layout_below="@id/ratingBar"
-        android:layout_toRightOf="@id/imageView"/>
+        android:layout_alignTop="@+id/button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+      />
 
     <TextView
         android:layout_width="wrap_content"

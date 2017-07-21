@@ -21,11 +21,15 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
     private List<Map<String, ?>> mDataset;
     private Context mContext;
     OnItemClickListener mItemClickListener;
+    double curlat;
+    double curlng;
 
 
-    public MyRecycleViewAdapter(Context myContext, List<Map<String, ?>> myDataset) {
+    public MyRecycleViewAdapter(Context myContext, List<Map<String, ?>> myDataset, double latitude, double longitude) {
         mContext = myContext;
         mDataset = myDataset;
+        curlat = latitude;
+        curlng = longitude;
     }
 
     @Override
@@ -68,10 +72,13 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
         public TextView vTitle;
         public RatingBar ratingView;
         public CircleImageView cImage;
+        public TextView distance;
 
         public void bindMovieData(Map<String, ?> movie) {
             String title = (String) movie.get("name");
             vTitle.setText(title);
+            String coordinates = curlat + ", " + curlng;
+            distance.setText(coordinates);
             String progress = (String) movie.get("rating");
             double val = Double.valueOf(progress);
             int rate = (int)val;
@@ -94,6 +101,7 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
             vTitle = (TextView) v.findViewById(R.id.title1);
             ratingView = (RatingBar) v.findViewById(R.id.ratingBar1);
             cImage = (CircleImageView) v.findViewById(R.id.circ);
+            distance = (TextView) v.findViewById(R.id.distance);
 
 
             v.setOnClickListener(new View.OnClickListener() {

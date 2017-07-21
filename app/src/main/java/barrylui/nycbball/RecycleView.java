@@ -1,7 +1,9 @@
 package barrylui.nycbball;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,13 +18,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 
 import java.util.HashMap;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecycleView extends Fragment {
+public class RecycleView extends Fragment{
 
     RecyclerView mRecyclerView;
     LinearLayoutManager mLayoutManager;
@@ -32,15 +38,13 @@ public class RecycleView extends Fragment {
     private MyRecycleViewAdapter mRecyclerViewAdapter;
     private OnFragmentInteractionListener mListener;
     private CourtData courtData = new CourtData();
-
+    LocationManager locationManager ;
+    String provider;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     public static RecycleView newInstance(int sectionNumber) {
         RecycleView fragment = new RecycleView();
-        Bundle args = new Bundle();
-        args.putInt(ARG_PARAM1, sectionNumber);
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -61,10 +65,29 @@ public class RecycleView extends Fragment {
         }
     }
 
+    /*public double compareLatLng ()
+    {
+        double clat;
+        double clng;
+        for (int i=0; i<courtData.getSize();i++)
+        {
+            double lat = (double)courtData.getItem(i).get("lat");
+            double lng = (double)courtData.getItem(i).get("lng");
+        }
+        return 0.0;
+    }
+    */
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.activity_recycle_view, container, false);
+
+        //compareLatLng();
+        CourtsRecycleView activity = (CourtsRecycleView) getActivity();
+        double lat = activity.getcurLat();
+        double lng = activity.getcurLng();
+
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.cardList);
 
         mRecyclerView.setHasFixedSize(true);
@@ -72,7 +95,7 @@ public class RecycleView extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mRecyclerViewAdapter = new MyRecycleViewAdapter(getActivity(), courtData.getCourtsList());
+        mRecyclerViewAdapter = new MyRecycleViewAdapter(getActivity(), courtData.getCourtsList(),lat, lng);
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
 
 
