@@ -76,7 +76,7 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
             String title = (String) movie.get("name");
             vTitle.setText(title);
             String dist = (String) movie.get("distance");
-            distance.setText(dist);
+            distance.setText(dist + " Miles Away");
             String progress = (String) movie.get("rating");
             double val = Double.valueOf(progress);
             int rate = (int)val;

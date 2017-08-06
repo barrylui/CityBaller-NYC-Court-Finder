@@ -49,6 +49,7 @@
                 android:id="@+id/distance"
                 android:layout_below="@id/title1"
                 android:layout_toRightOf="@id/circ"
+                android:layout_marginLeft="8dp"
                 android:textColor="#ffffff"/>
 
             <RatingBar

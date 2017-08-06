@@ -24,6 +24,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -110,7 +111,8 @@ public class RecycleView extends Fragment{
 
             if(calcDistance(lat, lng, clat, clng) < 1.5)
             {
-                double dis = calcDistance(lat, lng, clat, clng);
+                DecimalFormat distanceformat = new DecimalFormat("#.##");
+                double dis = Double.valueOf(distanceformat.format(calcDistance(lat, lng, clat, clng)));
                 String dist = Double.toString(dis);
                 courtsNearMe.add(createCourt(name, lat, lng, descrip, iurl, rating, directlink,dist));
             }
