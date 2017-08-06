@@ -25,11 +25,9 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
     double curlng;
 
 
-    public MyRecycleViewAdapter(Context myContext, List<Map<String, ?>> myDataset, double latitude, double longitude) {
+    public MyRecycleViewAdapter(Context myContext, List<Map<String, ?>> myDataset) {
         mContext = myContext;
         mDataset = myDataset;
-        curlat = latitude;
-        curlng = longitude;
     }
 
     @Override
@@ -77,8 +75,8 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
         public void bindMovieData(Map<String, ?> movie) {
             String title = (String) movie.get("name");
             vTitle.setText(title);
-            String coordinates = curlat + ", " + curlng;
-            distance.setText(coordinates);
+            String dist = (String) movie.get("distance");
+            distance.setText(dist);
             String progress = (String) movie.get("rating");
             double val = Double.valueOf(progress);
             int rate = (int)val;

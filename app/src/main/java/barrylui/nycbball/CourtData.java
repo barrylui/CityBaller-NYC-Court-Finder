@@ -1047,7 +1047,7 @@ public class CourtData {
 
     }
 
-    private HashMap createCourt (String name, double lat, double lng, String description,String imageurl, String rating, String dlink, int distance) {
+    private HashMap createCourt (String name, double lat, double lng, String description,String imageurl, String rating, String dlink, double distance) {
         HashMap court = new HashMap();
         court.put("name", name);
         court.put("lat",lat);
