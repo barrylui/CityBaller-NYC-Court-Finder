@@ -1060,6 +1060,18 @@ public class CourtData {
         return court;
     }
 
+    public int getIndex(String itemName)
+    {
+        for (int i = 0; i < courtsList.size(); i++)
+        {
+            if (itemName.equals(courtsList.get(i).get("name")))
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
     public void addCourt(int position) {
         HashMap original = (HashMap) courtsList.get(position);
         HashMap court = original;

@@ -32,13 +32,13 @@ public class CourtsRecycleView extends AppCompatActivity implements NavigationVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courts_recycle_view);
-        if (savedInstanceState != null) {
-            mContent = getSupportFragmentManager().getFragment(savedInstanceState, "mContent");
-        }
-        else {
+        //if (savedInstanceState != null) {
+            //mContent = getSupportFragmentManager().getFragment(savedInstanceState, "mContent");
+        //}
+        //else {
             cData = new CourtData();
             mContent = RecycleView.newInstance(-1);
-        }
+        //}
         getSupportFragmentManager().beginTransaction().replace(R.id.container2, mContent).commit();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
@@ -123,7 +123,7 @@ public class CourtsRecycleView extends AppCompatActivity implements NavigationVi
         return true;
     }
 
-    @Override
+    /*@Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         if(mContent.isAdded()) {
@@ -132,11 +132,14 @@ public class CourtsRecycleView extends AppCompatActivity implements NavigationVi
         }
     }
 
+
     @Override
     protected void onRestoreInstanceState(Bundle outState) {
         mContent = getSupportFragmentManager().getFragment(outState, "mContent");
         //outState.getInt()
     }
+    */
+
 
 
     @Override

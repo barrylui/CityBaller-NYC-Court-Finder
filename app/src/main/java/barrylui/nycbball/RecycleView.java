@@ -64,35 +64,43 @@ public class RecycleView extends Fragment{
     public void onCreate(Bundle savedInstanceState) {
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
-        if (getArguments().getInt(ARG_SECTION_NUMBER) == -1) {
+        //if (getArguments().getInt(ARG_SECTION_NUMBER) == -1) {
             CourtsRecycleView activity = (CourtsRecycleView) getActivity();
             double curLat = activity.getcurLat();
             double curLng = activity.getcurLng();
             compareLatLng(curLat, curLng);
-            }
+           // }
 
-        setRetainInstance(true);
+        //setRetainInstance(true);
     }
+    /*
     @Override
     public void onPause(){
         super.onPause();
         courtsNearMe.clear();
+        mRecyclerViewAdapter.notifyDataSetChanged();
     }
     @Override
     public void onStop(){
         super.onStop();
         courtsNearMe.clear();
+        mRecyclerViewAdapter.notifyDataSetChanged();
     }
     @Override
     public void onDestroy(){
         super.onDestroy();
         courtsNearMe.clear();
+
+        mRecyclerViewAdapter.notifyDataSetChanged();
     }
     public void onDetach()
     {
         super.onDetach();
         courtsNearMe.clear();
+        mRecyclerViewAdapter.notifyDataSetChanged();
     }
+
+*/
 
     public void compareLatLng (double curLat, double curLng)
     {
@@ -109,7 +117,7 @@ public class RecycleView extends Fragment{
             String directlink = (String)courtData.getItem(i).get("dlink");
 
 
-            if(calcDistance(lat, lng, clat, clng) < 1.5)
+            if(calcDistance(lat, lng, clat, clng) < 5)
             {
                 DecimalFormat distanceformat = new DecimalFormat("#.##");
                 double dis = Double.valueOf(distanceformat.format(calcDistance(lat, lng, clat, clng)));
@@ -158,22 +166,25 @@ public class RecycleView extends Fragment{
 
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.cardList);
 
-        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setHasFixedSize(false);
 
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         mRecyclerViewAdapter = new MyRecycleViewAdapter(getActivity(), courtsNearMe);
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
+        mRecyclerViewAdapter.notifyDataSetChanged();
 
 
 
         mRecyclerViewAdapter.SetOnItemClickListener(new MyRecycleViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
+                int data = courtData.getIndex((String)courtsNearMe.get(position).get("name"));
                 Intent info = new Intent(getContext(), CourtActivity.class);
-                info.putExtra("position", position);
+                info.putExtra("position", data);
                 startActivity(info);
+                mRecyclerViewAdapter.notifyDataSetChanged();
 
             }
 
