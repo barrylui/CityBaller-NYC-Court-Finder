@@ -117,7 +117,7 @@ public class RecycleView extends Fragment{
             String directlink = (String)courtData.getItem(i).get("dlink");
 
 
-            if(calcDistance(lat, lng, clat, clng) < 5)
+            if(calcDistance(lat, lng, clat, clng) < 1)
             {
                 DecimalFormat distanceformat = new DecimalFormat("#.##");
                 double dis = Double.valueOf(distanceformat.format(calcDistance(lat, lng, clat, clng)));

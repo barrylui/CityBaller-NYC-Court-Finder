@@ -1,6 +1,7 @@
 package barrylui.nycbball;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -38,6 +39,8 @@ public class PanoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getActivity().setRequestedOrientation(
+                ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         View rootView = inflater.inflate(R.layout.fragment_pano, container, false);
         final int index = getArguments().getInt(ARG_SECTION_NUMBER);
         WebView myWebView = (WebView) rootView.findViewById(R.id.webview);
