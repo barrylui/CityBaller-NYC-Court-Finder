@@ -145,6 +145,7 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
                 Intent courtRecycleView = new Intent(this, CourtsRecycleView.class);
                 this.startActivity(courtRecycleView);
                 drawerLayout.closeDrawer(GravityCompat.START);
+                finish();
             default:
         }
 

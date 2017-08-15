@@ -112,6 +112,7 @@ public class CourtsRecycleView extends AppCompatActivity implements NavigationVi
             case R.id.item1:
                 Intent mapview = new Intent(this, MapsActivity.class);
                 this.startActivity(mapview);
+                finish();
                 break;
             case R.id.item2:
                 break;
