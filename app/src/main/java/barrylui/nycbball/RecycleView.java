@@ -2,11 +2,13 @@ package barrylui.nycbball;
 
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -23,6 +25,7 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.widget.RelativeLayout;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -35,6 +38,7 @@ import java.util.Map;
  */
 public class RecycleView extends Fragment{
 
+    RelativeLayout r1;
     RecyclerView mRecyclerView;
     LinearLayoutManager mLayoutManager;
     //MovieData movieData = new MovieData();
@@ -168,10 +172,14 @@ public class RecycleView extends Fragment{
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mRecyclerViewAdapter = new MyRecycleViewAdapter(getActivity(), courtsNearMe);
-        mRecyclerView.setAdapter(mRecyclerViewAdapter);
-        mRecyclerViewAdapter.notifyDataSetChanged();
+        if (courtsNearMe.isEmpty()){
+            r1 = (RelativeLayout)rootView.findViewById(R.id.container2);
+            r1.setBackgroundResource(R.drawable.msg);
+        }
 
+            mRecyclerViewAdapter = new MyRecycleViewAdapter(getActivity(), courtsNearMe);
+            mRecyclerView.setAdapter(mRecyclerViewAdapter);
+            mRecyclerViewAdapter.notifyDataSetChanged();
 
 
         mRecyclerViewAdapter.SetOnItemClickListener(new MyRecycleViewAdapter.OnItemClickListener() {
