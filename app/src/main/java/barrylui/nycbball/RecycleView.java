@@ -68,6 +68,7 @@ public class RecycleView extends Fragment{
             CourtsRecycleView activity = (CourtsRecycleView) getActivity();
             double curLat = activity.getcurLat();
             double curLng = activity.getcurLng();
+            courtsNearMe.clear();
             compareLatLng(curLat, curLng);
            // }
 
@@ -93,14 +94,10 @@ public class RecycleView extends Fragment{
 
         mRecyclerViewAdapter.notifyDataSetChanged();
     }
-    public void onDetach()
-    {
-        super.onDetach();
-        courtsNearMe.clear();
-        mRecyclerViewAdapter.notifyDataSetChanged();
-    }
+
 
 */
+
 
     public void compareLatLng (double curLat, double curLng)
     {
