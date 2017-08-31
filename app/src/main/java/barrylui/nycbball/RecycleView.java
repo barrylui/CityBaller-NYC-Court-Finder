@@ -29,6 +29,7 @@ import android.widget.RelativeLayout;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,10 +75,44 @@ public class RecycleView extends Fragment{
             double curLng = activity.getcurLng();
             courtsNearMe.clear();
             compareLatLng(curLat, curLng);
+            quickSort(courtsNearMe);
            // }
 
         //setRetainInstance(true);
     }
+
+    public static void quickSort(List<Map<String, ?>> thelist ){
+        quickSort(thelist, 0, thelist.size() - 1);
+    }
+
+    public static void quickSort(List<Map<String, ?>> thelist, int from, int to) {
+        if (from < to) {
+            int pivot = from;
+            int left = from + 1;
+            int right = to;
+            double pivotValue = Double.parseDouble((String)thelist.get(pivot).get("distance"));
+            while (left <= right) {
+                // left <= to -> limit protection
+                while ((double)left <= to && pivotValue >= Double.parseDouble((String)thelist.get(left).get("distance"))) {
+                    left++;
+                }
+                // right > from -> limit protection
+                while (right > from && pivotValue < Double.parseDouble((String)thelist.get(right).get("distance"))){
+                    right--;
+                }
+                if (left < right) {
+                    Collections.swap(thelist, left, right);
+                }
+            }
+            Collections.swap(thelist, pivot, left - 1);
+            quickSort(thelist, from, right - 1); // <-- pivot was wrong!
+            quickSort(thelist, right + 1, to);   // <-- pivot was wrong!
+
+        }
+
+    }
+
+
     /*
     @Override
     public void onPause(){
