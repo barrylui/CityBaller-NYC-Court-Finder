@@ -35,7 +35,7 @@ public class CourtData {
 
         courtsList = new ArrayList<Map<String, ?>>();
 
-
+/*
         lat = 40.6875;
         lng = -73.9258333;
         description = "My court";
@@ -44,7 +44,7 @@ public class CourtData {
         dlink = "https://citymapper.com/directions?endcoord=40.6875%2C-73.9258333&endname=Reinaldo%20Salgado%20Playground";
         distance = 0;
         courtsList.add(createCourt("Reinaldo Salgado Playground",lat,lng,description,imageurl,rating,dlink,distance));
-
+*/
         lat = 40.8122222;
         lng = -73.9463889;
         description = "Two full courts with old backboards, faded lines and crooked rims, Go across the street to the South park for better courts ";

@@ -41,9 +41,15 @@ public class CourtActivity extends AppCompatActivity implements CourtdetailView.
 
 
     public void onListItemSelectedListener(int number){
-            bContent = PanoFragment.newInstance(number);
+        int num = number;
+        Intent pano = new Intent(this, PanoActivity.class);
+        pano.putExtra("position", num);
+        startActivity(pano);
+            /*bContent = PanoFragment.newInstance(number);
             getSupportFragmentManager().beginTransaction()
             .replace(R.id.container1, bContent).addToBackStack(null)
             .commit();
+            */
+
         }
     }
