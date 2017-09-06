@@ -1051,6 +1051,36 @@ public class CourtData {
         distance = 0;
         courtsList.add(createCourt("Inwood Hill Park",lat,lng,description,imageurl,rating,dlink,distance));
 
+        lat = 40.718771;
+        lng =  -74.012951;
+        description = "A hotspot for Tribeca basketball, with its beautifully paved surface, plexi glass backboard, high quality rims and nets along with the scenic hudson river vibes. ";
+        imageurl = "http://www.dermandar.com/p/dSosWs";
+        rating = "6";
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Pier%2025%20Courts";
+        distance = 0;
+        courtsList.add(createCourt("Pier 25 Courts",lat,lng,description,imageurl,rating,dlink,distance));
+
+        lat = 40.717205;
+        lng =  -74.016488;
+        description = "4 half courts with good backboards and rims with nets.";
+        imageurl = "http://www.dermandar.com/p/aDixZV";
+        rating = "5";
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Rockerfeller%20Park";
+        distance = 0;
+        courtsList.add(createCourt("Rockerfeller Park",lat,lng,description,imageurl,rating,dlink,distance));
+
+        lat = 40.709282;
+        lng =  -74.015524;
+        description = "";
+        imageurl = "http://www.dermandar.com/p/dkiNTE";
+        rating = "6";
+        dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=West%20Thames%20Park";
+        distance = 0;
+        courtsList.add(createCourt("West Thames Park",lat,lng,description,imageurl,rating,dlink,distance));
+
+        
+
+
 
 
 
