@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
+import pl.droidsonroids.gif.GifTextView;
+
 
 public class WelcomeFrag extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
@@ -17,6 +19,7 @@ public class WelcomeFrag extends Fragment {
     //private static final String ARG_PARAM1 = "param1";
     //private static final String ARG_PARAM2 = "param2";
     private static final String ARG_SECTION_NUMBER = "section_number";
+    GifTextView spinball;
 
     // TODO: Rename and change types of parameters
     //private String mParam1;
@@ -42,12 +45,27 @@ public class WelcomeFrag extends Fragment {
         return fragment;
     }
 
+    public interface OnBallClickListener {
+        public void onBallClick();
+
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_welcome, container, false);
+
+        final OnBallClickListener bListener = (OnBallClickListener) getContext();
+        spinball = (GifTextView) rootView.findViewById(R.id.gifView);
+        spinball.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v){
+                bListener.onBallClick();
+            }
+        });
         return rootView;
 
     }

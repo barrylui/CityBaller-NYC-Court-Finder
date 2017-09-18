@@ -12,7 +12,7 @@ import android.support.design.widget.NavigationView;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, WelcomeFrag.OnBallClickListener {
 
     DrawerLayout drawerLayout;
 
@@ -56,6 +56,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //}
     }
 
+    public void onBallClick(){
+        Intent map = new Intent(this, MapsActivity.class);
+        this.startActivity(map);
+    }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
