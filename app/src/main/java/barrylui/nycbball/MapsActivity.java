@@ -75,7 +75,8 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle("Map");
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view1);
         navigationView.setNavigationItemSelectedListener(this);

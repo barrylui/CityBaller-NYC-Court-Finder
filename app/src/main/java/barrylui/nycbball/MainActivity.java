@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle("Welcome!");
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, WelcomeFrag.newInstance(R.id.welcome)).commit();

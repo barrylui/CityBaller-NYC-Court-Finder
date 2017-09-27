@@ -43,7 +43,8 @@ public class CourtsRecycleView extends AppCompatActivity implements NavigationVi
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle("Courts Near You");
 
         mContext = this;
 

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="190dp"
+    android:layout_width="match_parent"
+    android:layout_height="190dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/blueban">
+    android:background="@drawable/newban">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
-        android:layout_width="76dp"
-        android:layout_height="76dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginLeft="24dp"
         android:src="@drawable/ballcourt"
         android:layout_centerVertical="true"
