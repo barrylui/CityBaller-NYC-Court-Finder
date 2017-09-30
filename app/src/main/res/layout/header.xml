@@ -1,22 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="190dp"
+    android:layout_height="200dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/newban">
+    android:background="#023661">
+    <!--
+  android:background:""
+  -->
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginLeft="24dp"
-        android:src="@drawable/ballcourt"
+
+
+   <de.hdodenhof.circleimageview.CircleImageView
+       android:id="@+id/profile_image"
+       android:layout_width="120dp"
+       android:layout_height="120dp"
+       android:src="@drawable/promo512"
+       android:layout_centerHorizontal="true"
+       android:layout_centerVertical="true"
+       android:layout_marginStart="24dp"/>
+
+
+<!--
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="24dp"/>
-
-
-
+        app:srcCompat="@drawable/logo200" />
+        -->
 </RelativeLayout>

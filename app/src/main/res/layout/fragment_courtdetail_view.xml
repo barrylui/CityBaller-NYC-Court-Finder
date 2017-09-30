@@ -15,7 +15,7 @@
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/courtname"
+        android:id="@+id/cname"
         android:text="DETAILS HERE"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="33dp"

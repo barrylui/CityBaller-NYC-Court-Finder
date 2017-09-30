@@ -82,16 +82,16 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
             int rate = (int)val;
             ratingView.setProgress(rate);
 
-            if(rate < 4)
-            {
-                cImage.setImageResource(R.drawable.onetofour);
-            }
-            else if (rate < 7)
+            if(rate < 5)
             {
                 cImage.setImageResource(R.drawable.fourtosix);
             }
-            else
+            else if (rate < 7)
+            {
                 cImage.setImageResource(R.drawable.seventoten);
+            }
+            else
+                cImage.setImageResource(R.drawable.promo512);
         }
 
         public ViewHolder(View v) {

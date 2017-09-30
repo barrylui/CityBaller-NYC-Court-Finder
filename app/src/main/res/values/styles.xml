@@ -13,11 +13,6 @@
         <item name="colorControlActivated">#00AFF0</item>
     </style>
 
-    <style name="GreenBar" parent="android:Widget.Material.RatingBar.Indicator">
-        <item name="colorControlNormal">#DCDCDC</item>
-        <item name="colorControlActivated">#169B33</item>
-    </style>
-
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="color">@android:color/white</item>
     </style>

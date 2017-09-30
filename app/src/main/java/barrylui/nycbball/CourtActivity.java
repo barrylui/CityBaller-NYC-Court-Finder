@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class CourtActivity extends AppCompatActivity implements CourtdetailView.OnListItemSelectedListener, CourtdetailView.DirectionListener {
+public class CourtActivity extends AppCompatActivity implements CourtDetail.OnPanoListener, CourtDetail.OnDirection {
 
     int in;
     Fragment mContent;
@@ -20,36 +20,33 @@ public class CourtActivity extends AppCompatActivity implements CourtdetailView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_court);
 
-        //Bundle posdata = new Bundle();
-        //posdata.putInt("pos", num);
-        //CourtdetailView passId = new CourtdetailView();
-        //passId.setArguments(posdata);
-        //PanoFragment pf = new PanoFragment();
-        //pf.setArguments(posdata);
 
-        mContent = CourtdetailView.newInstance(index);
+        //mContent = CourtdetailView.newInstance(index);
+        mContent = CourtDetail.newInstance(index);
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container1, mContent).commit();
     }
 
-    public void ondirection(int number){
-        String url = (String)courtData.getItem(number).get("dlink");
+    public void onDirection(int number) {
+        String url = (String) courtData.getItem(number).get("dlink");
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(browserIntent);
     }
 
+    public void onPanoListener(int number){
+        int num = number;
+        Intent pano = new Intent(this, PanoActivity.class);
+        pano.putExtra("position", num);
+        startActivity(pano);
+    }
 
+/*
     public void onListItemSelectedListener(int number){
         int num = number;
         Intent pano = new Intent(this, PanoActivity.class);
         pano.putExtra("position", num);
         startActivity(pano);
-            /*bContent = PanoFragment.newInstance(number);
-            getSupportFragmentManager().beginTransaction()
-            .replace(R.id.container1, bContent).addToBackStack(null)
-            .commit();
-            */
-
         }
+        */
     }

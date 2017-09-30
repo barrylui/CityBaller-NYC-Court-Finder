@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cdetail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context="barrylui.nycbball.CourtdetailView"
+    android:background="#023661">
+
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:id="@+id/courtname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="27sp"
+        android:gravity="center"
+        android:textColor="#ffffff"/>
+
+
+    <Button
+        android:layout_marginTop="5dp"
+        android:id="@+id/getdirections"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="13dp"
+        android:layout_below="@id/courtname"
+        android:textColor="#ffffff"
+        android:text="GET DIRECTIONS"
+        android:background="#1568AD"/>
+
+    <WebView  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/webpreview"
+        android:layout_width="fill_parent"
+        android:layout_height="250dp"
+        android:layout_below="@id/getdirections"
+        />
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rating"
+        android:layout_above="@+id/descrip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="1dp"
+        android:isIndicator="true"
+        android:theme="@style/BlueBar"/>
+
+    <TextView
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:id="@+id/descrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/panobutton"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/webpreview"
+        android:textColor="#ffffff"
+        android:text="FULL SCREEN COURT VIEWER"
+        android:background="#0260AD"/>
+
+
+</RelativeLayout>

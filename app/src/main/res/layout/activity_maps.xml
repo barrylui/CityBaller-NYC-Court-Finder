@@ -22,7 +22,7 @@
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             android:elevation="5dp"
             android:minHeight="60dp"
-            android:background="#1870B2">
+            android:background="#0662AE">
         <!--
        android:background="#087f23"
        -->
@@ -49,9 +49,9 @@
         android:layout_width="wrap_content"
         android:layout_gravity="start"
         android:background="#ffffff"
-        app:itemIconTint="#1870B2"
+        app:itemIconTint="#2298FA"
         app:headerLayout="@layout/header"
         app:menu="@menu/drawer"
-        app:itemTextColor="#1870B2"/>
+        app:itemTextColor="#023661"/>
 
 </android.support.v4.widget.DrawerLayout>
