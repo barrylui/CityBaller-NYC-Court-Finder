@@ -16,6 +16,12 @@
             android:checked="false"
             android:title="What's Next?"
             android:icon="@drawable/time"/>
+        <item
+            android:id="@+id/rate"
+            android:checked="false"
+            android:title="Rate/Review the App"
+            android:icon="@drawable/review"/>
+
 
     </group>
 

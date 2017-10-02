@@ -1,9 +1,11 @@
 package barrylui.nycbball;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.location.Location;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
@@ -135,6 +137,17 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    private boolean MyStartActivity(Intent aIntent) {
+        try
+        {
+            startActivity(aIntent);
+            return true;
+        }
+        catch (ActivityNotFoundException e)
+        {
+            return false;
+        }
+    }
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -151,6 +164,19 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
                 Intent whatsNext = new Intent(this, WhatsNext.class);
                 this.startActivity(whatsNext);
                 finish();
+                break;
+            case R.id.rate:
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                //Try Google play
+                intent.setData(Uri.parse("market://details?id=barrylui.nycbball"));
+                if (!MyStartActivity(intent)) {
+                    //Market (Google play) app seems not installed, let's try to open a webbrowser
+                    intent.setData(Uri.parse("https://play.google.com/store/apps/details?barrylui.nycbball"));
+                    if (!MyStartActivity(intent)) {
+                        //Well if this also fails, we have run out of options, inform the user.
+                        Toast.makeText(this, "Could not open Android market, please install the market app.", Toast.LENGTH_SHORT).show();
+                    }
+                }
                 break;
             default:
         }

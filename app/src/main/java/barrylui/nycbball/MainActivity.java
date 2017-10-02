@@ -1,6 +1,8 @@
 package barrylui.nycbball;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.support.design.widget.NavigationView;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, WelcomeFrag.OnBallClickListener {
 
@@ -61,6 +64,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent map = new Intent(this, MapsActivity.class);
         this.startActivity(map);
     }
+    private boolean MyStartActivity(Intent aIntent) {
+        try
+        {
+            startActivity(aIntent);
+            return true;
+        }
+        catch (ActivityNotFoundException e)
+        {
+            return false;
+        }
+    }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -77,6 +91,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.item3:
                 Intent whatsNext = new Intent(this, WhatsNext.class);
                 this.startActivity(whatsNext);
+                break;
+            case R.id.rate:
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                //Try Google play
+                intent.setData(Uri.parse("market://details?id=barrylui.nycbball"));
+                if (!MyStartActivity(intent)) {
+                    //Market (Google play) app seems not installed, let's try to open a webbrowser
+                    intent.setData(Uri.parse("https://play.google.com/store/apps/details?barrylui.nycbball"));
+                    if (!MyStartActivity(intent)) {
+                        //Well if this also fails, we have run out of options, inform the user.
+                        Toast.makeText(this, "Could not open Android market, please install the market app.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                break;
             default:
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, WelcomeFrag.newInstance(R.id.welcome))
