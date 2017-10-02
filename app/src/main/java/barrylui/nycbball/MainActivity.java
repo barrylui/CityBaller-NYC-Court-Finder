@@ -67,12 +67,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         switch (id) {
             case R.id.item1:
-                Intent mapview = new Intent(this, MapsActivity.class);
-                this.startActivity(mapview);
+                Intent mapView = new Intent(this, MapsActivity.class);
+                this.startActivity(mapView);
                 break;
             case R.id.item2:
                 Intent courtRecycleView = new Intent(this, CourtsRecycleView.class);
                 this.startActivity(courtRecycleView);
+                break;
+            case R.id.item3:
+                Intent whatsNext = new Intent(this, WhatsNext.class);
+                this.startActivity(whatsNext);
             default:
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, WelcomeFrag.newInstance(R.id.welcome))

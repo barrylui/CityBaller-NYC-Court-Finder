@@ -113,30 +113,6 @@ public class RecycleView extends Fragment{
     }
 
 
-    /*
-    @Override
-    public void onPause(){
-        super.onPause();
-        courtsNearMe.clear();
-        mRecyclerViewAdapter.notifyDataSetChanged();
-    }
-    @Override
-    public void onStop(){
-        super.onStop();
-        courtsNearMe.clear();
-        mRecyclerViewAdapter.notifyDataSetChanged();
-    }
-    @Override
-    public void onDestroy(){
-        super.onDestroy();
-        courtsNearMe.clear();
-
-        mRecyclerViewAdapter.notifyDataSetChanged();
-    }
-
-
-*/
-
 
     public void compareLatLng (double curLat, double curLng)
     {
@@ -153,7 +129,7 @@ public class RecycleView extends Fragment{
             String directlink = (String)courtData.getItem(i).get("dlink");
 
 
-            if(calcDistance(lat, lng, clat, clng) < 4)
+            if(calcDistance(lat, lng, clat, clng) < 1.5)
             {
                 DecimalFormat distanceformat = new DecimalFormat("#.##");
                 double dis = Double.valueOf(distanceformat.format(calcDistance(lat, lng, clat, clng)));

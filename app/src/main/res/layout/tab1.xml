@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#0662AE">
+
+    <TextView
+        android:layout_marginTop="3dp"
+        android:textSize="17dp"
+        android:id="@+id/tv1"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:background="#0662AE"
+        android:textColor="#ffffff"
+        android:text="This project started as a way to learn Android Development. I came up with the name CityBaller and took the NYC Parks logo and added three lines to resemble a basketball." />
+
+    <TextView
+        android:textSize="17dp"
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:gravity="center"
+        android:background="#0662AE"
+        android:textColor="#ffffff"
+        android:text="If you do a quick google search of CityBaller, you'll find sports leagues, youtube channels, facebook pages, etc. I plan on re-branding the project with a new name and logo to be more distinguishable."
+        android:layout_below="@+id/iv"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/promosmall"
+        android:layout_below="@+id/tv1"/>
+
+
+</RelativeLayout>

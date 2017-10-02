@@ -11,6 +11,12 @@
             android:checked="false"
             android:title="Courts Near Me"
             android:icon="@drawable/mylocationicon"/>
+        <item
+            android:id="@+id/item3"
+            android:checked="false"
+            android:title="What's Next?"
+            android:icon="@drawable/time"/>
+
     </group>
 
 </menu>

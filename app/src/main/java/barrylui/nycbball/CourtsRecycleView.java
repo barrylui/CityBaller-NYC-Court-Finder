@@ -116,7 +116,12 @@ public class CourtsRecycleView extends AppCompatActivity implements NavigationVi
                 finish();
                 break;
             case R.id.item2:
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
+            case R.id.item3:
+                Intent whatsNext = new Intent(this, WhatsNext.class);
+                this.startActivity(whatsNext);
+                finish();
             default:
                 break;
         }

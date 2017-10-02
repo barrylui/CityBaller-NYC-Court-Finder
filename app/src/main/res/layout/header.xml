@@ -4,10 +4,7 @@
     android:layout_height="200dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#023661">
-    <!--
-  android:background:""
-  -->
+    android:background="#0662AE">
 
 
 
@@ -18,7 +15,7 @@
        android:src="@drawable/promo512"
        android:layout_centerHorizontal="true"
        android:layout_centerVertical="true"
-       android:layout_marginStart="24dp"/>
+       android:layout_marginStart="24dp" />
 
 
 <!--

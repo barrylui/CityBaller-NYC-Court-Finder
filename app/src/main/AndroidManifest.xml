@@ -45,7 +45,11 @@
         </activity>
         <activity
             android:name=".PanoActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".WhatsNext"
+            android:label="@string/title_activity_whats_next"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

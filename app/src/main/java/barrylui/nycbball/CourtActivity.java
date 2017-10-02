@@ -20,8 +20,6 @@ public class CourtActivity extends AppCompatActivity implements CourtDetail.OnPa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_court);
 
-
-        //mContent = CourtdetailView.newInstance(index);
         mContent = CourtDetail.newInstance(index);
 
         getSupportFragmentManager().beginTransaction()

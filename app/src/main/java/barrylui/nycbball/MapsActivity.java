@@ -57,8 +57,6 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
 
     CourtData courtData = new CourtData();
 
-    //MarkerOptions Rein;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +75,8 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Map");
+
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view1);
         navigationView.setNavigationItemSelectedListener(this);
@@ -145,8 +145,13 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
             case R.id.item2:
                 Intent courtRecycleView = new Intent(this, CourtsRecycleView.class);
                 this.startActivity(courtRecycleView);
-                drawerLayout.closeDrawer(GravityCompat.START);
                 finish();
+                break;
+            case R.id.item3:
+                Intent whatsNext = new Intent(this, WhatsNext.class);
+                this.startActivity(whatsNext);
+                finish();
+                break;
             default:
         }
 
