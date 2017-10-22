@@ -18,13 +18,13 @@
         android:layout_width="wrap_content"
         android:textColor="#023661"
         android:layout_marginLeft="3dp"
-        android:gravity="center"
+        android:gravity="left"
         android:layout_marginRight="3dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gif"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:text="Coming soon, users will be able to upvote or downvote courts, submit comments and even submit requests for new courts that are not yet listed. Together we can help each other find new places to enjoy the game that we all love." />
+        android:layout_marginTop="40dp"
+        android:text="Coming soon, users will be able to upvote or downvote courts, submit comments and even submit requests for new courts that are not yet listed. Together we can help each other find new places to enjoy the beautiful game of basketball." />
 
     <TextView
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"

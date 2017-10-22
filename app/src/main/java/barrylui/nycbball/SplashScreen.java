@@ -23,7 +23,7 @@ public class SplashScreen extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-
+//Display splash screen with gif for 4.6 seconds then launch mainactivity with welcome fragment
         mHandler = new Handler();
         mRunnable = new Runnable() {
             @Override
@@ -36,7 +36,7 @@ public class SplashScreen extends Activity{
             }
         };
 
-
+//If user taps the screen during the splash screen with gif, immediately launch main activity and skip the animation
         RelativeLayout RL = (RelativeLayout) findViewById(R.id.relative);
         RL.setOnClickListener(new View.OnClickListener() {
             @Override

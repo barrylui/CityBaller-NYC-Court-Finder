@@ -288,8 +288,8 @@ public class CourtData {
         distance = 0;
         courtsList.add(createCourt("First Park",lat,lng,description,imageurl,rating,dlink,distance));
 
-        lat = 40.722127;
-        lng = -73.991368;
+        lat = 40.723077;
+        lng = -73.990896;
         description = "Two full courts nicely paved with plexi glass backboards & nice rims. There's more of the same type of courts on the park's south end.";
         imageurl = "http://www.dermandar.com/p/etOzOL";
         rating = "7";
@@ -914,8 +914,8 @@ public class CourtData {
         distance = 0;
         courtsList.add(createCourt("Morning Side Park South",lat,lng,description,imageurl,rating,dlink,distance));
 
-        lat = 40.803084;
-        lng = -73.958850;
+        lat = 40.807372;
+        lng = -73.957350;
         description = "A quiet park with two full courts and one half court. There's an extra backboard here but it is missing a rim.";
         imageurl = "http://www.dermandar.com/p/cnIWbi";
         rating = "4";
@@ -1062,28 +1062,21 @@ public class CourtData {
 
         lat = 40.717205;
         lng =  -74.016488;
-        description = "4 half courts with good backboards and rims with nets.";
+        description = "Busy park with 4 half courts with good backboards and rims with nets.";
         imageurl = "http://www.dermandar.com/p/aDixZV";
-        rating = "5";
+        rating = "6";
         dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Rockerfeller%20Park";
         distance = 0;
         courtsList.add(createCourt("Rockerfeller Park",lat,lng,description,imageurl,rating,dlink,distance));
 
         lat = 40.709282;
         lng =  -74.015524;
-        description = "";
+        description = "Two full courts nicely paved and equipped with high quality rims. The Backboard is a bit smaller here.";
         imageurl = "http://www.dermandar.com/p/dkiNTE";
         rating = "6";
         dlink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=West%20Thames%20Park";
         distance = 0;
         courtsList.add(createCourt("West Thames Park",lat,lng,description,imageurl,rating,dlink,distance));
-
-
-
-
-
-
-
 
     }
 

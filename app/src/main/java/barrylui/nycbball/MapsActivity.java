@@ -73,13 +73,14 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
 
         setContentView(R.layout.activity_maps);
 
+        //Setup toolbar with title
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Map");
 
 
-
+        //Setup navigation drawer
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view1);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -100,11 +101,6 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
-        //Rein = new MarkerOptions()
-               // .position(new LatLng(40.6875, -73.9258333))
-                //.title("Reinaldo Salgado Playground")
-                //.snippet("Tap for more info")
-               // .icon(BitmapDescriptorFactory.fromResource(R.drawable.bball));
 
 
         // Build the Play services client for use by the Fused Location Provider and the Places API.
@@ -229,21 +225,24 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        //Set up map and toggle hybrid map
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-
+        //Update user location in realtime
         updateLocationUI();
-
         getDeviceLocation();
+        //Add Courts to the map by iterating through data
         for (int i = 0; i < courtData.getSize(); i++){
             String name = (String) courtData.getItem(i).get("name");
             Marker mark = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng((double) courtData.getItem(i).get("lat"), (double) courtData.getItem(i).get("lng")))
                     .title(name)
                     .snippet("Tap for more info"));
-            mark.setTag(i);
+            mark.setTag(i);//Set tag as index
             String val = (String)courtData.getItem(i).get("rating");
             int rate = Integer.parseInt(val);
+
+            //Different markers on the map according to their rating
             if (rate < 4){
                 mark.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.blackball));
             } else if (rate < 7){
@@ -256,7 +255,7 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
-
+    //Listener for when user taps on a marker
     @Override
     public void onInfoWindowClick(Marker marker) {
         int in = (Integer)marker.getTag();
@@ -352,10 +351,11 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
                     PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
         }
-
+        //Permission granted
         if (mLocationPermissionGranted) {
             mMap.setMyLocationEnabled(true);
             mMap.getUiSettings().setMyLocationButtonEnabled(true);
+            //Permission denied
         } else {
             mMap.setMyLocationEnabled(false);
             mMap.getUiSettings().setMyLocationButtonEnabled(false);

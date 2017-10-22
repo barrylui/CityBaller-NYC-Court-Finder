@@ -42,14 +42,13 @@ public class RecycleView extends Fragment{
     RelativeLayout r1;
     RecyclerView mRecyclerView;
     LinearLayoutManager mLayoutManager;
-    //MovieData movieData = new MovieData();
+
     private int mParam1;
     private static final String ARG_SECTION_NUMBER = "section_number";
+
     private MyRecycleViewAdapter mRecyclerViewAdapter;
     private OnFragmentInteractionListener mListener;
     private CourtData courtData = new CourtData();
-    LocationManager locationManager ;
-    String provider;
     public static List<Map<String, ?>> courtsNearMe = new ArrayList<Map<String,?>>();
 
     public static RecycleView newInstance(int sectionNumber) {
@@ -67,20 +66,23 @@ public class RecycleView extends Fragment{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
-        //if (getArguments().getInt(ARG_SECTION_NUMBER) == -1) {
-            CourtsRecycleView activity = (CourtsRecycleView) getActivity();
-            double curLat = activity.getcurLat();
-            double curLng = activity.getcurLng();
-            courtsNearMe.clear();
-            compareLatLng(curLat, curLng);
-            quickSort(courtsNearMe);
-           // }
 
-        //setRetainInstance(true);
+        //Portrait mode only
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        CourtsRecycleView activity = (CourtsRecycleView) getActivity();
+
+        //Get current lat and lng
+        double curLat = activity.getcurLat();
+        double curLng = activity.getcurLng();
+
+        courtsNearMe.clear(); // Clear list of courst near user
+        compareLatLng(curLat, curLng); // Method to compare user location to courts
+        quickSort(courtsNearMe); // sort the list of courts near user
     }
 
+    //Quicksort method to sort list
     public static void quickSort(List<Map<String, ?>> thelist ){
         quickSort(thelist, 0, thelist.size() - 1);
     }
@@ -183,6 +185,7 @@ public class RecycleView extends Fragment{
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+        //If user is not close to any courts, display message
         if (courtsNearMe.isEmpty()){
             r1 = (RelativeLayout)rootView.findViewById(R.id.container2);
             r1.setBackgroundResource(R.drawable.msg);
@@ -194,6 +197,7 @@ public class RecycleView extends Fragment{
 
 
         mRecyclerViewAdapter.SetOnItemClickListener(new MyRecycleViewAdapter.OnItemClickListener() {
+            //Launches corresponding CourtActivity with CourtDetail fragment
             @Override
             public void onItemClick(View view, int position) {
                 int data = courtData.getIndex((String)courtsNearMe.get(position).get("name"));
@@ -201,14 +205,10 @@ public class RecycleView extends Fragment{
                 info.putExtra("position", data);
                 startActivity(info);
                 mRecyclerViewAdapter.notifyDataSetChanged();
-
             }
 
             @Override
             public void onItemLongClick(View view, int position) {
-                //Log.d("Click", "Long Click");
-                //courtData.addCourt(position);
-                //mRecyclerViewAdapter.notifyItemInserted(position + 1);
 
             }
         });

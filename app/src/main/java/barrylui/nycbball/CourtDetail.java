@@ -29,10 +29,12 @@ public class CourtDetail extends Fragment {
         //empty constructor
     }
 
+    //Interface for fragment & activity to interact when panoramic button is pressed
     public interface OnPanoListener {
         public void onPanoListener(int num);
     }
 
+    //Interface for fragment & activity to interact when direction button is pressed
     public interface OnDirection{
         public void onDirection(int num);
     }

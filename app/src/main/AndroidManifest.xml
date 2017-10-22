@@ -48,6 +48,7 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".WhatsNext"
+            android:screenOrientation="portrait">
             android:label="@string/title_activity_whats_next"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

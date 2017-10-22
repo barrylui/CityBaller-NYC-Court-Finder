@@ -24,15 +24,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Set up toolbar & title
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Welcome!");
 
+        // Start the welcome fragment in container
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, WelcomeFrag.newInstance(R.id.welcome)).commit();
 
-
+        //Set up Navigation bar
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -52,18 +54,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-
-        //if (savedInstanceState == null) {
-        //    getSupportFragmentManager().beginTransaction()
-        //            .add(R.id.container, Fragment_RecyclerView.newInstance(0))
-        //            .commit()
-        //}
     }
 
+    //Method that starts the map activity when ball is tapped by user
     public void onBallClick(){
         Intent map = new Intent(this, MapsActivity.class);
         this.startActivity(map);
     }
+    //Check if activity is found
     private boolean MyStartActivity(Intent aIntent) {
         try
         {
@@ -76,22 +74,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    //Setting up listener for when items on navigation bar are chosen
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
+            //Starts map activity with court listings
             case R.id.item1:
                 Intent mapView = new Intent(this, MapsActivity.class);
                 this.startActivity(mapView);
                 break;
+            //Starts Recyclerview activity with listing of courts nearby
             case R.id.item2:
                 Intent courtRecycleView = new Intent(this, CourtsRecycleView.class);
                 this.startActivity(courtRecycleView);
                 break;
+            //Starts ViewPager activity showing the roadmap for the app
             case R.id.item3:
                 Intent whatsNext = new Intent(this, WhatsNext.class);
                 this.startActivity(whatsNext);
                 break;
+            //Opens CityBaller NYC Court Finder listing on the Google Play Store
             case R.id.rate:
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 //Try Google play

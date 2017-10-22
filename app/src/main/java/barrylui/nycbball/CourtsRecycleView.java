@@ -34,15 +34,11 @@ public class CourtsRecycleView extends AppCompatActivity implements NavigationVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courts_recycle_view);
-        //if (savedInstanceState != null) {
-            //mContent = getSupportFragmentManager().getFragment(savedInstanceState, "mContent");
-        //}
-        //else {
             cData = new CourtData();
             mContent = RecycleView.newInstance(-1);
-        //}
         getSupportFragmentManager().beginTransaction().replace(R.id.container2, mContent).commit();
 
+        //Initialize toolbar and setup the title
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
@@ -50,10 +46,11 @@ public class CourtsRecycleView extends AppCompatActivity implements NavigationVi
 
         mContext = this;
 
+        //Initialize navigation drawer
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view2);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        //Check location permissions
         if (ContextCompat.checkSelfPermission((Activity)mContext, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission((Activity)mContext, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(CourtsRecycleView.this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
 
@@ -79,6 +76,7 @@ public class CourtsRecycleView extends AppCompatActivity implements NavigationVi
             }
         }
 
+        //Setup navigation drawer states
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer2);
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,  R.string.open_drawer, R.string.close_drawer)
         {
@@ -120,23 +118,27 @@ public class CourtsRecycleView extends AppCompatActivity implements NavigationVi
         }
     }
 
+    //Setting up listener for when items on navigation bar are chosen
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
+            //Starts map activity with court listings
             case R.id.item1:
                 Intent mapview = new Intent(this, MapsActivity.class);
                 this.startActivity(mapview);
                 finish();
                 break;
+            //Starts Recyclerview activity with listing of courts nearby
             case R.id.item2:
-                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
+            //Starts ViewPager activity showing the roadmap for the app
             case R.id.item3:
                 Intent whatsNext = new Intent(this, WhatsNext.class);
                 this.startActivity(whatsNext);
                 finish();
                 break;
+            //Opens CityBaller NYC Court Finder listing on the Google Play Store
             case R.id.rate:
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 //Try Google play
@@ -157,23 +159,6 @@ public class CourtsRecycleView extends AppCompatActivity implements NavigationVi
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
-
-    /*@Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        if(mContent.isAdded()) {
-            getSupportFragmentManager().putFragment(outState, "mContent", mContent);
-            //outState.putInt("currentFrag", );
-        }
-    }
-
-
-    @Override
-    protected void onRestoreInstanceState(Bundle outState) {
-        mContent = getSupportFragmentManager().getFragment(outState, "mContent");
-        //outState.getInt()
-    }
-    */
 
 
 
@@ -219,6 +204,7 @@ public class CourtsRecycleView extends AppCompatActivity implements NavigationVi
             }
         }
     }
+    //Getter methods for recyclerview to access lat and lng
     public double getcurLat(){
         return lat;
     }

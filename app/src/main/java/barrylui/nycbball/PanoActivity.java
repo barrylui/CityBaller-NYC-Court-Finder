@@ -17,6 +17,7 @@ public class PanoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pano);
 
         WebView myWebView = (WebView) findViewById(R.id.webview1);
+        //Setup embeded webview and start
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         myWebView.loadUrl((String)courtData.getItem(index).get("imageurl"));

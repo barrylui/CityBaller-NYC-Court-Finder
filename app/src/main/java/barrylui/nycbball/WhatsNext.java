@@ -50,12 +50,14 @@ public class WhatsNext extends AppCompatActivity implements NavigationView.OnNav
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_whats_next);
+        setContentView(R.layout.activity_whats_next); //use layout file
 
+        //Setup toolbar with title
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("What's Next?");
 
+        //Setup Navigation Drawer
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view3);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -84,7 +86,7 @@ public class WhatsNext extends AppCompatActivity implements NavigationView.OnNav
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
+        //Tab layout
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
@@ -184,6 +186,7 @@ public class WhatsNext extends AppCompatActivity implements NavigationView.OnNav
             return false;
         }
     }
+    //Navigation drawer listener
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -199,7 +202,6 @@ public class WhatsNext extends AppCompatActivity implements NavigationView.OnNav
                 finish();
                 break;
             case R.id.item3:
-                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.rate:
                 Intent intent = new Intent(Intent.ACTION_VIEW);

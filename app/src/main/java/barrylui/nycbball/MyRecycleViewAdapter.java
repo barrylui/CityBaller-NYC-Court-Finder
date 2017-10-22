@@ -24,18 +24,20 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
     double curlat;
     double curlng;
 
-
+    //Bind context and data
     public MyRecycleViewAdapter(Context myContext, List<Map<String, ?>> myDataset) {
         mContext = myContext;
         mDataset = myDataset;
     }
 
     @Override
+    //bind data to position
     public void onBindViewHolder(ViewHolder holder, int position) {
         Map<String, ?> movie = mDataset.get(position);
         holder.bindMovieData(movie);
     }
 
+    //Datasize getter
     @Override
     public int getItemCount() {
         return mDataset.size();
@@ -46,6 +48,7 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
         return position % 2;
     }
 
+    //Set up listeners for recyclerview
     public interface OnItemClickListener {
         public void onItemClick(View view, int position);
 
@@ -56,6 +59,7 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
         this.mItemClickListener = mItemClickListener;
     }
 
+    //Inflate the layout provided by layout file
     @Override
     public MyRecycleViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v;
@@ -67,11 +71,13 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        //Declaring items
         public TextView vTitle;
         public RatingBar ratingView;
         public CircleImageView cImage;
         public TextView distance;
 
+        //Binding data from courts to appropriate fields
         public void bindMovieData(Map<String, ?> movie) {
             String title = (String) movie.get("name");
             vTitle.setText(title);
@@ -82,6 +88,7 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
             int rate = (int)val;
             ratingView.setProgress(rate);
 
+            //Change image according to rating
             if(rate < 5)
             {
                 cImage.setImageResource(R.drawable.fourtosix);
