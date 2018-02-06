@@ -41,15 +41,19 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
 
     private GoogleMap mMap;
     private CameraPosition mCameraPosition;
+    private Location mLastKnownLocation;
+
+    private Location savedLocation;
+    private CameraPosition savedCamereaPosition;
     private GoogleApiClient mGoogleApiClient;
     private static final String TAG = MapsActivity.class.getSimpleName();
 
-    private final LatLng mDefaultLocation = new LatLng(-33.8523341, 151.2106085);
+    private final LatLng mDefaultLocation = new LatLng(40.758765, -73.978758);
     private static final int DEFAULT_ZOOM = 15;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private boolean mLocationPermissionGranted;
 
-    private Location mLastKnownLocation;
+
 
     // Keys for storing activity state.
     private static final String KEY_CAMERA_POSITION = "camera_position";
@@ -63,13 +67,6 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Retrieve location and camera position from saved instance state.
-        if (savedInstanceState != null) {
-            mLastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION);
-            mCameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
-        }
-
 
         setContentView(R.layout.activity_maps);
 
@@ -131,6 +128,17 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
             outState.putParcelable(KEY_LOCATION, mLastKnownLocation);
             super.onSaveInstanceState(outState);
         }
+    }
+
+    public void onRestoreInstanceState(Bundle savedInstanceState){
+        super.onRestoreInstanceState(savedInstanceState);
+        savedCamereaPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
+        savedLocation = savedInstanceState.getParcelable(KEY_LOCATION);
+        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
+                //new LatLng(mLastKnownLocation.getLatitude(),
+                  //      mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
+
+
     }
 
     private boolean MyStartActivity(Intent aIntent) {
@@ -228,9 +236,17 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
         //Set up map and toggle hybrid map
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-        //Update user location in realtime
-        updateLocationUI();
-        getDeviceLocation();
+
+        if (savedCamereaPosition == null) {
+            //Request location
+            updateLocationUI();
+            getDeviceLocation();
+        }
+        else{
+            mMap.moveCamera(CameraUpdateFactory.newCameraPosition(savedCamereaPosition));
+        }
+
+
         //Add Courts to the map by iterating through data
         for (int i = 0; i < courtData.getSize(); i++){
             String name = (String) courtData.getItem(i).get("name");
@@ -301,7 +317,8 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                     new LatLng(mLastKnownLocation.getLatitude(),
                             mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
-        } else {
+        }
+        else {
             Log.d(TAG, "Current location is null. Using defaults.");
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM));
             mMap.getUiSettings().setMyLocationButtonEnabled(false);

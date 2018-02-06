@@ -56,17 +56,20 @@ public class CourtDetail extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //Listeners for interface
         final OnPanoListener mListener = (OnPanoListener) getContext();
         final OnDirection dListener = (OnDirection)getContext();
+
         View rootView = inflater.inflate(R.layout.fragment_court_detail, container, false);
         final int index = getArguments().getInt(ARG_SEC);
+
+        //Set up data
+
 
         courtTitle = (TextView) rootView.findViewById(R.id.courtname);
         courtTitle.setText((String) courtData.getItem(index).get("name"));
 
-
         ratingView = (RatingBar) rootView.findViewById(R.id.rating);
-
         String rating = (String) courtData.getItem(index).get("rating");
         int val = Integer.parseInt(rating);
         ratingView.setProgress(val);
@@ -74,6 +77,7 @@ public class CourtDetail extends Fragment {
         descrip = (TextView) rootView.findViewById(R.id.descrip);
         descrip.setText((String)courtData.getItem(index).get("description"));
 
+        //webview for panoramic
         webView = (WebView) rootView.findViewById(R.id.webpreview);
 
 
