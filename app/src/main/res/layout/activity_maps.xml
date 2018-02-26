@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity">
+    tools:context=".MapsActivity">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/content_frame1"
@@ -37,6 +37,115 @@
             android:layout_height="wrap_content"
             tools:context="barrylui.nycbball.MapsActivity" />
 
+        <RelativeLayout
+            android:id="@+id/keyhiddenlayout"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:background="#afff"
+            android:alpha="1.0"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:text="Key"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/keydetaillayout"
+            android:layout_width="110dp"
+            android:layout_height="90dp"
+            android:background="#afff"
+            android:alpha="1.0"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/keytextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:text="Key"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                android:layout_below="@id/keytextview"/>
+
+            <ImageView
+                android:id="@+id/orangeballimageview"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/bball"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/keytextview" />
+
+            <ImageView
+                android:id="@+id/blueballimageview"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/blueball"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="2dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/orangeballimageview" />
+
+            <ImageView
+                android:id="@+id/blackballimageview"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:src="@drawable/blackball"
+                android:layout_marginTop="2dp"
+                android:layout_marginLeft="4dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/blueballimageview" />
+            <TextView
+                android:id="@+id/recommendedtextview"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:text="Good"
+                android:gravity="center"
+                android:layout_marginLeft="1dp"
+                android:layout_toRightOf="@id/orangeballimageview"
+                android:layout_below="@id/keytextview"/>
+            <TextView
+                android:layout_marginTop="2dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:text="Acceptable"
+                android:gravity="center"
+                android:layout_marginLeft="1dp"
+                android:layout_toRightOf="@id/blueballimageview"
+                android:layout_below="@id/orangeballimageview"/>
+            <TextView
+                android:textColor="@color/black"
+                android:layout_marginTop="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:text="Poor"
+                android:gravity="center"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@id/blackballimageview"
+                android:layout_below="@id/blueballimageview"/>
+        </RelativeLayout>
     </RelativeLayout>
 
     <android.support.design.widget.NavigationView

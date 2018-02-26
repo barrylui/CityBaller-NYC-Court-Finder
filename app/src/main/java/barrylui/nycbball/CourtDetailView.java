@@ -1,7 +1,5 @@
 package barrylui.nycbball;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,7 +13,12 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 
-public class CourtDetail extends Fragment {
+/* ----------------------------------------------------------------------------------------------------------
+ * This is the Court Detail View
+ * Users can see details about the court such as panoramic photos, receive directions, ratings, descriptions
+ * ----------------------------------------------------------------------------------------------------------
+ */
+public class CourtDetailView extends Fragment {
 
     private static final String ARG_SEC= "";
     TextView courtTitle;
@@ -25,13 +28,13 @@ public class CourtDetail extends Fragment {
 
     CourtData courtData = new CourtData();
 
-    public CourtDetail() {
+    public CourtDetailView() {
         //empty constructor
     }
 
     //Interface for fragment & activity to interact when panoramic button is pressed
-    public interface OnPanoListener {
-        public void onPanoListener(int num);
+    public interface OnPanoramicViewListener {
+        public void onPanoramicViewListener(int num);
     }
 
     //Interface for fragment & activity to interact when direction button is pressed
@@ -40,8 +43,8 @@ public class CourtDetail extends Fragment {
     }
 
 
-    public static CourtDetail newInstance(int section) {
-        CourtDetail fragment = new CourtDetail();
+    public static CourtDetailView newInstance(int section) {
+        CourtDetailView fragment = new CourtDetailView();
         Bundle args = new Bundle();
         args.putInt(ARG_SEC, section);
         fragment.setArguments(args);
@@ -57,15 +60,13 @@ public class CourtDetail extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //Listeners for interface
-        final OnPanoListener mListener = (OnPanoListener) getContext();
-        final OnDirection dListener = (OnDirection)getContext();
+        final OnPanoramicViewListener panoramicListener = (OnPanoramicViewListener) getContext();
+        final OnDirection directionListener = (OnDirection)getContext();
 
         View rootView = inflater.inflate(R.layout.fragment_court_detail, container, false);
         final int index = getArguments().getInt(ARG_SEC);
 
         //Set up data
-
-
         courtTitle = (TextView) rootView.findViewById(R.id.courtname);
         courtTitle.setText((String) courtData.getItem(index).get("name"));
 
@@ -79,28 +80,24 @@ public class CourtDetail extends Fragment {
 
         //webview for panoramic
         webView = (WebView) rootView.findViewById(R.id.webpreview);
-
-
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webView.loadUrl((String)courtData.getItem(index).get("imageurl"));
-
         webView.setWebViewClient(new WebViewClient());
 
         Button directions = (Button) rootView.findViewById(R.id.getdirections);
-        Button pano = (Button) rootView.findViewById(R.id.panobutton);
+        Button panoramic = (Button) rootView.findViewById(R.id.panobutton);
 
         directions.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
-                dListener.onDirection(index);
+                directionListener.onDirection(index);
             }
         });
-
-        pano.setOnClickListener(new View.OnClickListener(){
+        panoramic.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View v){
-                mListener.onPanoListener(index);
+                panoramicListener.onPanoramicViewListener(index);;
             }
         });
 

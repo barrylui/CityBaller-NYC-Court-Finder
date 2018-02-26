@@ -22,10 +22,10 @@
             android:value="AIzaSyA_AISvutvScKLmxgKQ4vrxYAaQN-954G0" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".LandingPage"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CourtsRecycleView"
+            android:name=".CourtsNearMeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MapsActivity"
@@ -44,10 +44,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PanoActivity"
+            android:name=".PanoramicViewer"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".WhatsNext"
+            android:name=".WhatsNextViewPager"
             android:screenOrientation="portrait">
             android:label="@string/title_activity_whats_next"
             android:theme="@style/AppTheme.NoActionBar"></activity>

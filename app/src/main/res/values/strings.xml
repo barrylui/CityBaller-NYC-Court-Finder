@@ -2,11 +2,13 @@
     <string name="app_name">CityBaller</string>
     <string name="open_drawer">Open drawer</string>
     <string name="close_drawer">Close drawer</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome">Welcome!</string>
     <string name="title_activity_maps">Map</string>
-    <string name="title_activity_whats_next">WhatsNext</string>
+    <string name="title_activity_whats_next">Whats Next?</string>
+    <string name="title_activity_Courts_Near_Me">Courts Near Me</string>
     <string name="action_settings">Settings</string>
+    <string name="hello_blank_fragment">BLANK</string>
+    <string name="title_viewpager_rebrand">Rebrand</string>
+    <string name="map_marker_description">Tap here for more info</string>
     <string name="section_format">Hello World from section: %1$d</string>
 </resources>

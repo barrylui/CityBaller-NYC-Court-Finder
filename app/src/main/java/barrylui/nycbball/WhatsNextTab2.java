@@ -11,7 +11,7 @@ import android.view.ViewGroup;
  * Created by The MACHINE on 9/30/2017.
  */
 
-public class Tab2 extends Fragment {
+public class WhatsNextTab2 extends Fragment {
 
     @Nullable
     @Override

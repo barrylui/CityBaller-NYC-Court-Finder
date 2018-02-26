@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,7 +17,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,8 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class WhatsNext extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-
+public class WhatsNextViewPager extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     DrawerLayout drawerLayout;
     /**
@@ -50,20 +46,17 @@ public class WhatsNext extends AppCompatActivity implements NavigationView.OnNav
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_whats_next); //use layout file
+        setContentView(R.layout.activity_whats_next);
 
-        //Setup toolbar with title
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("What's Next?");
+        getSupportActionBar().setTitle(R.string.title_activity_whats_next);
 
-        //Setup Navigation Drawer
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view3);
         navigationView.setNavigationItemSelectedListener(this);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.draw);
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,  R.string.open_drawer, R.string.close_drawer)
-        {
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar,  R.string.open_drawer, R.string.close_drawer) {
             @Override
             public void onDrawerClosed(View drawerView){
                 super.onDrawerClosed(drawerView);
@@ -92,8 +85,6 @@ public class WhatsNext extends AppCompatActivity implements NavigationView.OnNav
 
 
     }
-
-
 
     /**
      * A placeholder fragment containing a simple view.
@@ -144,11 +135,11 @@ public class WhatsNext extends AppCompatActivity implements NavigationView.OnNav
         public Fragment getItem(int position) {
             switch (position){
                 case 0 :
-                    Tab1 tab1 = new Tab1();
+                    WhatsNextTab1 tab1 = new WhatsNextTab1();
                     return tab1;
-                case 1: Tab2 tab2 = new Tab2();
+                case 1: WhatsNextTab2 tab2 = new WhatsNextTab2();
                     return tab2;
-                case 2: Tab3 tab3 = new Tab3();
+                case 2: WhatsNextTab3 tab3 = new WhatsNextTab3();
                     return tab3;
             }
             return null;
@@ -174,7 +165,6 @@ public class WhatsNext extends AppCompatActivity implements NavigationView.OnNav
         }
     }
 
-
     private boolean MyStartActivity(Intent aIntent) {
         try
         {
@@ -197,7 +187,7 @@ public class WhatsNext extends AppCompatActivity implements NavigationView.OnNav
                 finish();
                 break;
             case R.id.item2:
-                Intent courtRecycleView = new Intent(this, CourtsRecycleView.class);
+                Intent courtRecycleView = new Intent(this, CourtsNearMeActivity.class);
                 this.startActivity(courtRecycleView);
                 finish();
                 break;
@@ -218,7 +208,6 @@ public class WhatsNext extends AppCompatActivity implements NavigationView.OnNav
                 break;
             default:
                 break;
-
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

@@ -13,48 +13,35 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="3dp"
         android:layout_marginRight="3dp"
-        android:layout_marginTop="25dp"
         android:gravity="center"
         android:textColor="#176AAE"
-        android:layout_alignParentTop="true"
         android:text="CityBaller is coming to iOS!"
-        android:layout_centerHorizontal="true"/>
+        android:layout_above="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp" />
 
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/droidtoios"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/tab2"/>
+        android:layout_marginBottom="30dp"
+        android:layout_above="@+id/iosbody"
+        android:layout_centerHorizontal="true" />
 
     <TextView
-        android:layout_marginTop="30dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:id="@+id/iosbody"
         android:layout_marginLeft="3dp"
         android:layout_marginRight="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true"
         android:gravity="center"
         android:textColor="#176AAE"
-        android:text="A plan is in the works to bring CityBaller to iOS! Finding a place to hoop will be easier than ever once CityBaller becomes available on most smart phone devices." />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="65dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/iosbody"
-        android:textColor="#176AAE"
-        android:gravity="center"
-        android:text="Coming Summer 2018" />
+        android:text="A plan is in the works to bring CityBaller to iOS! Finding a place to hoop will be easier than ever once CityBaller becomes available on most smart phone devices."
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

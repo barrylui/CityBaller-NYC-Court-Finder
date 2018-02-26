@@ -12,10 +12,14 @@ import android.webkit.WebView;
 
 import pl.droidsonroids.gif.GifTextView;
 
+/* ------------------------
+ * Landing Page Fragment
+ * ------------------------
+ */
 
 public class WelcomeFrag extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
-    GifTextView spinball;
+    GifTextView animatedAppLogo;
 
 
 
@@ -30,7 +34,7 @@ public class WelcomeFrag extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-//Interface for fragment to interact with activity
+    //Interface for fragment to interact with activity
     public interface OnBallClickListener {
         public void onBallClick();
 
@@ -43,8 +47,8 @@ public class WelcomeFrag extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_welcome, container, false);
         //Click listener for the gif
         final OnBallClickListener bListener = (OnBallClickListener) getContext();
-        spinball = (GifTextView) rootView.findViewById(R.id.gifView);
-        spinball.setOnClickListener(new View.OnClickListener()
+        animatedAppLogo = (GifTextView) rootView.findViewById(R.id.gifView);
+        animatedAppLogo.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v){

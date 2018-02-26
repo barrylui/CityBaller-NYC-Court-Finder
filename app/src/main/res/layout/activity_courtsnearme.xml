@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".CourtsRecycleView">
+    tools:context=".CourtsNearMeActivity">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/content_frame1"
@@ -34,7 +34,7 @@
             android:layout_below="@id/toolbar2"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            tools:context=".CourtsRecycleView"
+            tools:context=".CourtsNearMeActivity"
             tools:ignore="MergeRootFrame"/>
     </RelativeLayout>
 

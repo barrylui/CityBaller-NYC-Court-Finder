@@ -1,30 +1,20 @@
 package barrylui.nycbball;
 
 
-import android.content.Context;
-import android.content.DialogInterface;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.location.LocationManager;
+import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
-import android.util.Log;
-import android.view.ActionMode;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.PopupMenu;
-import android.content.Context;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.widget.RelativeLayout;
 
 import java.text.DecimalFormat;
@@ -35,31 +25,36 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * A simple {@link Fragment} subclass.
+ * RecyclerViewFragment that hosts the list of courts near the user
+ * Compares user's lat lng with each court's lat lng and adds court to new list if it is less than 1.5 miles away
+ * Quicksort is done on the new list and is returned and displayed to the user
  */
-public class RecycleView extends Fragment{
+public class CourtsNearMeRecyclerView extends Fragment{
 
     RelativeLayout r1;
     RecyclerView mRecyclerView;
     LinearLayoutManager mLayoutManager;
+    GPSTracker gps;
 
     private int mParam1;
-    private static final String ARG_SECTION_NUMBER = "section_number";
-
-    private MyRecycleViewAdapter mRecyclerViewAdapter;
+    private CourtsNearMeRecyclerViewAdapter mRecyclerViewAdapter;
     private OnFragmentInteractionListener mListener;
     private CourtData courtData = new CourtData();
-    public static List<Map<String, ?>> courtsNearMe = new ArrayList<Map<String,?>>();
+    CourtsNearMeActivity recyclerviewactivity = (CourtsNearMeActivity) getActivity();
+    double currentLat;
+    double currentLng;
+    public List<Map<String, ?>> courtsNearMe = new ArrayList<Map<String,?>>(); //List with courts near user
 
-    public static RecycleView newInstance(int sectionNumber) {
-        RecycleView fragment = new RecycleView();
+    public static CourtsNearMeRecyclerView newInstance(double userLat,double userLng) {
+        CourtsNearMeRecyclerView fragment = new CourtsNearMeRecyclerView();
         Bundle args = new Bundle();
-        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+        args.putDouble("USERLAT", userLat);
+        args.putDouble("USERLNG", userLng);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public RecycleView() {
+    public CourtsNearMeRecyclerView() {
         // Required empty public constructor
     }
 
@@ -67,19 +62,26 @@ public class RecycleView extends Fragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //Portrait mode only
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        currentLat = getArguments().getDouble("USERLAT");
+        currentLng = getArguments().getDouble("USERLNG");
+        new AsyncFindCourtsNearMe().execute();
+    }
 
-        CourtsRecycleView activity = (CourtsRecycleView) getActivity();
+    private class AsyncFindCourtsNearMe extends AsyncTask<Void, Void,Void> {
 
-        //Get current lat and lng
-        double curLat = activity.getcurLat();
-        double curLng = activity.getcurLng();
+        @Override
+        protected Void doInBackground(Void... params) {
+            courtsNearMe.clear();
+            compareCurrentLatLngToCourts(currentLat, currentLng);
+            quickSort(courtsNearMe);
+            return null;
+        }
 
-        courtsNearMe.clear(); // Clear list of courst near user
-        compareLatLng(curLat, curLng); // Method to compare user location to courts
-        quickSort(courtsNearMe); // sort the list of courts near user
+        //@Override
+        //protected void onPostExecute() {
+        //
+        //}
     }
 
     //Quicksort method to sort list
@@ -113,48 +115,35 @@ public class RecycleView extends Fragment{
         }
 
     }
-
-
-
-    public void compareLatLng (double curLat, double curLng)
+    // Method to compare user location to courts
+    public void compareCurrentLatLngToCourts (double curLat, double curLng)
     {
-        double clat = curLat;
-        double clng = curLng;
+        double currentlat = curLat;
+        double currentlng = curLng;
         for (int i=0; i<courtData.getSize();i++)
         {
-            double lat = (double)courtData.getItem(i).get("lat");
-            double lng = (double)courtData.getItem(i).get("lng");
-            String name = (String)courtData.getItem(i).get("name");
-            String descrip = (String)courtData.getItem(i).get("description");
-            String iurl = (String)courtData.getItem(i).get("imageurl");
-            String rating = (String)courtData.getItem(i).get("rating");
-            String directlink = (String)courtData.getItem(i).get("dlink");
+            double courtlat = (double)courtData.getItem(i).get("lat");
+            double courtlng = (double)courtData.getItem(i).get("lng");
+            double distanceFromCourt = calculateDistanceBtwnTwoPoints(courtlat, courtlng, currentlat, currentlng);
 
 
-            if(calcDistance(lat, lng, clat, clng) < 1.5)
+            if(distanceFromCourt < 1.5)
             {
+                String name = (String)courtData.getItem(i).get("name");
+                String descrip = (String)courtData.getItem(i).get("description");
+                String imgurl = (String)courtData.getItem(i).get("imageurl");
+                String rating = (String)courtData.getItem(i).get("rating");
+                String directlink = (String)courtData.getItem(i).get("directlink");
                 DecimalFormat distanceformat = new DecimalFormat("#.##");
-                double dis = Double.valueOf(distanceformat.format(calcDistance(lat, lng, clat, clng)));
+                double dis = Double.valueOf(distanceformat.format(distanceFromCourt));
                 String dist = Double.toString(dis);
-                courtsNearMe.add(createCourt(name, lat, lng, descrip, iurl, rating, directlink,dist));
+                courtsNearMe.add(createCourt(name, courtlat, courtlng, descrip, imgurl, rating, directlink,dist));
             }
         }
     }
 
-    private HashMap createCourt (String name, double lat, double lng, String description,String imageurl, String rating, String dlink, String distance) {
-        HashMap court = new HashMap();
-        court.put("name", name);
-        court.put("lat",lat);
-        court.put("lng",lng);
-        court.put("description", description);
-        court.put("imageurl",imageurl);
-        court.put("rating", rating);
-        court.put("dlink", dlink);
-        court.put("distance", distance);
-        return court;
-    }
-
-    public double calcDistance(double lat1, double lon1, double lat2, double lon2)
+    //Calculates distance between a pair of lat lng points
+    public double calculateDistanceBtwnTwoPoints(double lat1, double lon1, double lat2, double lon2)
     {
         double theta = lon1 - lon2;
         double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
@@ -164,22 +153,34 @@ public class RecycleView extends Fragment{
         return (dist);
     }
 
+    // Functions to convert between radians and degrees
+    // These functions help compute the distance
     private double deg2rad(double deg) {
         return (deg * Math.PI / 180.0);
     }
-
     private double rad2deg(double rad) {
         return (rad * 180.0 / Math.PI);
     }
 
+    private HashMap createCourt (String name, double lat, double lng, String description,String imageurl, String rating, String directionlink, String distance) {
+        HashMap court = new HashMap();
+        court.put("name", name);
+        court.put("lat",lat);
+        court.put("lng",lng);
+        court.put("description", description);
+        court.put("imageurl",imageurl);
+        court.put("rating", rating);
+        court.put("directionlink", directionlink);
+        court.put("distance", distance);
+        return court;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View rootView = inflater.inflate(R.layout.activity_recycle_view, container, false);
+        final View rootView = inflater.inflate(R.layout.activity_courtsnearme_recycler_view, container, false);
 
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.cardList);
-
         mRecyclerView.setHasFixedSize(false);
 
         mLayoutManager = new LinearLayoutManager(getActivity());
@@ -191,13 +192,12 @@ public class RecycleView extends Fragment{
             r1.setBackgroundResource(R.drawable.msg);
         }
 
-            mRecyclerViewAdapter = new MyRecycleViewAdapter(getActivity(), courtsNearMe);
-            mRecyclerView.setAdapter(mRecyclerViewAdapter);
-            mRecyclerViewAdapter.notifyDataSetChanged();
+        mRecyclerViewAdapter = new CourtsNearMeRecyclerViewAdapter(getActivity(), courtsNearMe);
+        mRecyclerView.setAdapter(mRecyclerViewAdapter);
+        mRecyclerViewAdapter.notifyDataSetChanged();
 
-
-        mRecyclerViewAdapter.SetOnItemClickListener(new MyRecycleViewAdapter.OnItemClickListener() {
-            //Launches corresponding CourtActivity with CourtDetail fragment
+        //Launches corresponding CourtActivity with CourtDetailView fragment
+        mRecyclerViewAdapter.SetOnItemClickListener(new CourtsNearMeRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 int data = courtData.getIndex((String)courtsNearMe.get(position).get("name"));
@@ -206,10 +206,8 @@ public class RecycleView extends Fragment{
                 startActivity(info);
                 mRecyclerViewAdapter.notifyDataSetChanged();
             }
-
             @Override
             public void onItemLongClick(View view, int position) {
-
             }
         });
         return rootView;
@@ -217,7 +215,6 @@ public class RecycleView extends Fragment{
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(int num);
-
     }
 
 }

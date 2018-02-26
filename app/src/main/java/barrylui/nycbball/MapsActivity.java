@@ -3,24 +3,22 @@ package barrylui.nycbball;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.location.Location;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -37,6 +35,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+
+/* -------------------------------------------------------------------------------------------------
+ * This is the Map Page
+ * Users can see their location in real time and select basketball courts to find more details about
+ * -------------------------------------------------------------------------------------------------
+ */
+
 public class MapsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, GoogleMap.OnInfoWindowClickListener, OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleMap mMap;
@@ -49,24 +54,29 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
     private static final String TAG = MapsActivity.class.getSimpleName();
 
     private final LatLng mDefaultLocation = new LatLng(40.758765, -73.978758);
-    private static final int DEFAULT_ZOOM = 15;
+    private static final int DEFAULT_ZOOM = 13;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private boolean mLocationPermissionGranted;
 
 
 
-    // Keys for storing activity state.
+    //Keys for storing activity state.
     private static final String KEY_CAMERA_POSITION = "camera_position";
     private static final String KEY_LOCATION = "location";
 
     DrawerLayout drawerLayout;
-
     CourtData courtData = new CourtData();
+    RelativeLayout keydetailed;
+    RelativeLayout keyhidden;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(savedInstanceState !=null){ //Retreive user location and camera position if restoring activity
+            savedCamereaPosition = (CameraPosition)savedInstanceState.get("cam_position");
+            savedLocation = (Location)savedInstanceState.get("lastlocation");
+        }
 
         setContentView(R.layout.activity_maps);
 
@@ -74,8 +84,29 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setTitle("Map");
+        getSupportActionBar().setTitle(R.string.title_activity_maps);
 
+        //Setup Map Key. Toggles Hidden or Detailed Mode on click
+        keydetailed = (RelativeLayout) findViewById(R.id.keydetaillayout);
+        keydetailed.setVisibility(View.VISIBLE);
+
+        keyhidden = (RelativeLayout) findViewById(R.id.keyhiddenlayout);
+        keyhidden.setVisibility(View.GONE);
+
+        keydetailed.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                keydetailed.setVisibility(View.GONE);
+                keyhidden.setVisibility(View.VISIBLE);
+            }
+        });
+        keyhidden.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                keyhidden.setVisibility(View.GONE);
+                keydetailed.setVisibility(View.VISIBLE);
+            }
+        });
 
         //Setup navigation drawer
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view1);
@@ -98,8 +129,6 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
-
-
         // Build the Play services client for use by the Fused Location Provider and the Places API.
         // Use the addApi() method to request the Google Places API and the Fused Location Provider.
         mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -112,33 +141,21 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
                 .build();
         mGoogleApiClient.connect();
     }
-    // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-    //SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-    //       .findFragmentById(R.id.map);
-    //mapFragment.getMapAsync(this);
-    // }
 
     /**
      * Saves the state of the map when the activity is paused.
      */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        if (mMap != null) {
-            outState.putParcelable(KEY_CAMERA_POSITION, mMap.getCameraPosition());
-            outState.putParcelable(KEY_LOCATION, mLastKnownLocation);
-            super.onSaveInstanceState(outState);
-        }
+        outState.putParcelable("cam_position", mMap.getCameraPosition());
+        outState.putParcelable("lastlocation", mLastKnownLocation);
     }
 
-    public void onRestoreInstanceState(Bundle savedInstanceState){
-        super.onRestoreInstanceState(savedInstanceState);
-        savedCamereaPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
-        savedLocation = savedInstanceState.getParcelable(KEY_LOCATION);
-        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                //new LatLng(mLastKnownLocation.getLatitude(),
-                  //      mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
-
-
+    @Override
+    public void onPause(){
+        super.onPause();
+        savedCamereaPosition = mMap.getCameraPosition();
+        savedLocation = mLastKnownLocation;
     }
 
     private boolean MyStartActivity(Intent aIntent) {
@@ -160,12 +177,12 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.item2:
-                Intent courtRecycleView = new Intent(this, CourtsRecycleView.class);
+                Intent courtRecycleView = new Intent(this, CourtsNearMeActivity.class);
                 this.startActivity(courtRecycleView);
                 finish();
                 break;
             case R.id.item3:
-                Intent whatsNext = new Intent(this, WhatsNext.class);
+                Intent whatsNext = new Intent(this, WhatsNextViewPager.class);
                 this.startActivity(whatsNext);
                 finish();
                 break;
@@ -184,7 +201,6 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
                 break;
             default:
         }
-
         return true;
     }
 
@@ -204,31 +220,22 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
      */
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult result) {
-        // Refer to the reference doc for ConnectionResult to see what error codes might
-        // be returned in onConnectionFailed.
         Log.d(TAG, "Play services connection failed: ConnectionResult.getErrorCode() = "
                 + result.getErrorCode());
     }
 
-    /**
-     * Handles suspension of the connection to the Google Play services client.
-     */
+
+     //Handles suspension of the connection to the Google Play services client.
+
     @Override
     public void onConnectionSuspended(int cause) {
         Log.d(TAG, "Play services connection suspended");
     }
 
-
-
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
+     * Markers are placed for basketball courts
      */
 
     @Override
@@ -237,15 +244,15 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
-        if (savedCamereaPosition == null) {
-            //Request location
-            updateLocationUI();
-            getDeviceLocation();
+        updateLiveLocationUI();//Set up live marker for phone position on map
+        getDeviceLocation();//Retrieves location
+
+        if (savedCamereaPosition == null){
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM));
         }
-        else{
+        else {
             mMap.moveCamera(CameraUpdateFactory.newCameraPosition(savedCamereaPosition));
         }
-
 
         //Add Courts to the map by iterating through data
         for (int i = 0; i < courtData.getSize(); i++){
@@ -253,7 +260,7 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
             Marker mark = mMap.addMarker(new MarkerOptions()
                     .position(new LatLng((double) courtData.getItem(i).get("lat"), (double) courtData.getItem(i).get("lng")))
                     .title(name)
-                    .snippet("Tap for more info"));
+                    .snippet("Tap here for more info"));
             mark.setTag(i);//Set tag as index
             String val = (String)courtData.getItem(i).get("rating");
             int rate = Integer.parseInt(val);
@@ -266,32 +273,19 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
             } else
                 mark.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.bball));
         }
-
         mMap.setOnInfoWindowClickListener(this);
-
-
     }
-    //Listener for when user taps on a marker
+
+    //Displays name of the park and brings in a detailed view of the court.
     @Override
     public void onInfoWindowClick(Marker marker) {
         int in = (Integer)marker.getTag();
-
         Intent info = new Intent(getBaseContext(), CourtActivity.class);
-
         info.putExtra("position", in);
-
         startActivity(info);
     }
 
-    /**
-     * Gets the current location of the device, and positions the map's camera.
-     */
     private void getDeviceLocation() {
-        /*
-         * Request location permission, so that we can get the location of the
-         * device. The result of the permission request is handled by a callback,
-         * onRequestPermissionsResult.
-         */
         if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -301,34 +295,12 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
                     PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
         }
-        /*
-         * Get the best and most recent location of the device, which may be null in rare
-         * cases when a location is not available.
-         */
         if (mLocationPermissionGranted) {
             mLastKnownLocation = LocationServices.FusedLocationApi
                     .getLastLocation(mGoogleApiClient);
         }
-
-        // Set the map's camera position to the current location of the device.
-        if (mCameraPosition != null) {
-            mMap.moveCamera(CameraUpdateFactory.newCameraPosition(mCameraPosition));
-        } else if (mLastKnownLocation != null) {
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                    new LatLng(mLastKnownLocation.getLatitude(),
-                            mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
-        }
-        else {
-            Log.d(TAG, "Current location is null. Using defaults.");
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM));
-            mMap.getUiSettings().setMyLocationButtonEnabled(false);
-        }
     }
 
-
-    /**
-     * Handles the result of the request for location permissions.
-     */
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String permissions[],
@@ -343,22 +315,14 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         }
-        updateLocationUI();
+        updateLiveLocationUI();
     }
 
-    /**
-     * Updates the map's UI settings based on whether the user has granted location permission.
-     */
-    private void updateLocationUI() {
+    private void updateLiveLocationUI() {
         if (mMap == null) {
             return;
         }
-
-        /*
-         * Request location permission, so that we can get the location of the
-         * device. The result of the permission request is handled by a callback,
-         * onRequestPermissionsResult.
-         */
+        //Check permission
         if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -370,8 +334,8 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
         }
         //Permission granted
         if (mLocationPermissionGranted) {
-            mMap.setMyLocationEnabled(true);
-            mMap.getUiSettings().setMyLocationButtonEnabled(true);
+            mMap.setMyLocationEnabled(true); //Live indicator for phones position on map
+            mMap.getUiSettings().setMyLocationButtonEnabled(true); //Button to center camera to position
             //Permission denied
         } else {
             mMap.setMyLocationEnabled(false);
@@ -379,6 +343,4 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
             mLastKnownLocation = null;
         }
     }
-
-
 }

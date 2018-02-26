@@ -18,6 +18,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
+// GPS Tracker class used to track user location
 public class GPSTracker extends Service{
 
     private  Context mContext;

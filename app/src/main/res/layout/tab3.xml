@@ -18,13 +18,13 @@
     android:layout_width="wrap_content"
     android:textColor="#023661"
     android:layout_marginLeft="3dp"
-    android:gravity="left"
+    android:gravity="center"
     android:layout_marginRight="3dp"
     android:layout_height="wrap_content"
     android:layout_below="@+id/gif"
     android:layout_centerHorizontal="true"
     android:layout_marginTop="40dp"
-    android:text="New features are on the horizon!" />
+    android:text="New features are on the horizon! We're focusing on providing an immersive user experience. Stay tuned for future updates" />
 
     <TextView
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -34,19 +34,8 @@
         android:layout_toRightOf="@id/gif"
         android:layout_marginRight="3dp"
         android:textColor="#023661"
+        android:gravity="center"
         android:text="CityBaller is a directory for basketball courts. With your help, it can become so much more."
         android:layout_marginTop="30dp"/>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#023661"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView5"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Updates are coming soon that will allow you to become a part of the discussion. Share your own reviews of courts, unknown courts not listed, etc."/>
 
 </RelativeLayout>
