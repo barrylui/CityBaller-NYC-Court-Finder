@@ -11,4 +11,5 @@
     <string name="title_viewpager_rebrand">Rebrand</string>
     <string name="map_marker_description">Tap here for more info</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="no_courts_found">No Courts Found</string>
 </resources>

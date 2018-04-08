@@ -7,39 +7,20 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context="barrylui.nycbball.CourtDetailView"
+    tools:context="barrylui.nycbball.CourtDetails.CourtDetailViewFragment"
     android:background="#023661">
 
 
-    <TextView
-        android:layout_marginTop="5dp"
-        android:id="@+id/courtname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="27sp"
-        android:gravity="center"
-        android:textColor="#ffffff"/>
 
 
-    <Button
-        android:layout_marginTop="5dp"
-        android:id="@+id/getdirections"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="13dp"
-        android:layout_below="@id/courtname"
-        android:textColor="#ffffff"
-        android:text="GET DIRECTIONS"
-        android:background="#1568AD"/>
 
     <WebView  xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/webpreview"
         android:layout_width="fill_parent"
-        android:layout_height="250dp"
-        android:layout_below="@id/getdirections"
+        android:layout_height="275dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="55dp"
+        android:layout_marginBottom="5dp"
         />
 
     <RatingBar
@@ -68,11 +49,23 @@
     <Button
         android:id="@+id/panobutton"
         android:layout_width="fill_parent"
-        android:layout_height="45dp"
+        android:layout_height="40dp"
         android:layout_below="@+id/webpreview"
         android:textColor="#ffffff"
+        android:textSize="13dp"
+        android:layout_marginBottom="5dp"
         android:text="FULL SCREEN COURT VIEWER"
-        android:background="#0260AD"/>
-
+        android:background="@drawable/ripple_bluebutton"/>
+    <Button
+        android:layout_marginTop="5dp"
+        android:id="@+id/getdirections"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="13dp"
+        android:layout_below="@id/panobutton"
+        android:textColor="#ffffff"
+        android:text="GET DIRECTIONS"
+        android:background="@drawable/ripple_bluebutton"/>
 
 </RelativeLayout>

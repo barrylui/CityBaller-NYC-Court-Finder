@@ -1,4 +1,4 @@
-package barrylui.nycbball;
+package barrylui.nycbball.CourtDetails;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,13 +12,16 @@ import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import barrylui.nycbball.CourtData.CourtData;
+import barrylui.nycbball.R;
+
 
 /* ----------------------------------------------------------------------------------------------------------
  * This is the Court Detail View
  * Users can see details about the court such as panoramic photos, receive directions, ratings, descriptions
  * ----------------------------------------------------------------------------------------------------------
  */
-public class CourtDetailView extends Fragment {
+public class CourtDetailViewFragment extends Fragment {
 
     private static final String ARG_SEC= "";
     TextView courtTitle;
@@ -28,7 +31,7 @@ public class CourtDetailView extends Fragment {
 
     CourtData courtData = new CourtData();
 
-    public CourtDetailView() {
+    public CourtDetailViewFragment() {
         //empty constructor
     }
 
@@ -43,8 +46,8 @@ public class CourtDetailView extends Fragment {
     }
 
 
-    public static CourtDetailView newInstance(int section) {
-        CourtDetailView fragment = new CourtDetailView();
+    public static CourtDetailViewFragment newInstance(int section) {
+        CourtDetailViewFragment fragment = new CourtDetailViewFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SEC, section);
         fragment.setArguments(args);
@@ -66,9 +69,6 @@ public class CourtDetailView extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_court_detail, container, false);
         final int index = getArguments().getInt(ARG_SEC);
 
-        //Set up data
-        courtTitle = (TextView) rootView.findViewById(R.id.courtname);
-        courtTitle.setText((String) courtData.getItem(index).get("name"));
 
         ratingView = (RatingBar) rootView.findViewById(R.id.rating);
         String rating = (String) courtData.getItem(index).get("rating");

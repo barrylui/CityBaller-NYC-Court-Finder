@@ -1,4 +1,4 @@
-package barrylui.nycbball;
+package barrylui.nycbball.WhatsNext;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import barrylui.nycbball.R;
 
 /**
  * Created by The MACHINE on 9/30/2017.

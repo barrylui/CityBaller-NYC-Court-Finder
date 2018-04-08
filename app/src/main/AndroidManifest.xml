@@ -22,17 +22,17 @@
             android:value="AIzaSyA_AISvutvScKLmxgKQ4vrxYAaQN-954G0" />
 
         <activity
-            android:name=".LandingPage"
+            android:name=".WelcomePage.LandingPageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CourtsNearMeActivity"
+            android:name=".CourtsNearMe.CourtsNearMeActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CourtActivity"
+            android:name=".CourtDetails.CourtDetailViewActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".SplashScreen"
@@ -44,10 +44,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PanoramicViewer"
+            android:name=".CourtDetails.PanoramicViewer"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".WhatsNextViewPager"
+            android:name=".WhatsNext.WhatsNextViewPager"
             android:screenOrientation="portrait">
             android:label="@string/title_activity_whats_next"
             android:theme="@style/AppTheme.NoActionBar"></activity>

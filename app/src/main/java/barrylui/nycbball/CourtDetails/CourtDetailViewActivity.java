@@ -1,20 +1,25 @@
-package barrylui.nycbball;
+package barrylui.nycbball.CourtDetails;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
+
+import barrylui.nycbball.CourtData.CourtData;
+import barrylui.nycbball.R;
 
 
 
 /* ----------------------------------------------------------
- * This is the CourtActivity  for CityBaller
+ * This is the CourtDetailViewActivity  for CityBaller
  * It contains a container for fragments to be loaded in
  * ----------------------------------------------------------
  */
 
-public class CourtActivity extends AppCompatActivity implements CourtDetailView.OnPanoramicViewListener, CourtDetailView.OnDirection {
+public class CourtDetailViewActivity extends AppCompatActivity implements CourtDetailViewFragment.OnPanoramicViewListener, CourtDetailViewFragment.OnDirection {
 
     Fragment mContent;
     int index;
@@ -23,13 +28,21 @@ public class CourtActivity extends AppCompatActivity implements CourtDetailView.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Get index to access courtdata
+        //Get index to access specific court
         index = getIntent().getIntExtra("position", 1);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_court);
+        setContentView(R.layout.activity_courtsdetailview);
 
-        //Passing index to the CourtDetailView fragment
-        mContent = CourtDetailView.newInstance(index);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar3);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        TextView toolbarTitle = (TextView)findViewById(R.id.toolbar_title);
+        toolbarTitle.setText((String)courtData.getItem(index).get("name"));
+
+        //Passing index to the CourtDetailViewFragment fragment
+        mContent = CourtDetailViewFragment.newInstance(index);
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container1, mContent).commit();
@@ -44,11 +57,16 @@ public class CourtActivity extends AppCompatActivity implements CourtDetailView.
         startActivity(browserIntent);
     }
 
-    //Launches panoramic activity when button is pressed on fragment
+    //Launches panoramic activity to view court
     public void onPanoramicViewListener(int index){
         int num = index;
         Intent panoramic = new Intent(this, PanoramicViewer.class);
         panoramic.putExtra("position", num);
         startActivity(panoramic);
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

@@ -1,4 +1,4 @@
-package barrylui.nycbball;
+package barrylui.nycbball.CourtsNearMe;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 import java.util.Map;
 
+import barrylui.nycbball.R;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -95,10 +96,7 @@ public class CourtsNearMeRecyclerViewAdapter extends RecyclerView.Adapter<Courts
             {
                 circleImage.setImageResource(R.drawable.seventoten);
             }
-            //else if (rate < 7)
-            //{
-            //    circleImage.setImageResource(R.drawable.seventoten);
-            //}
+
             else
                 circleImage.setImageResource(R.drawable.promo512);
 

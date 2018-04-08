@@ -1,4 +1,4 @@
-package barrylui.nycbball;
+package barrylui.nycbball.WhatsNext;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,15 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import barrylui.nycbball.R;
+
 /**
  * Created by The MACHINE on 9/30/2017.
  */
 
-public class WhatsNextTab3 extends Fragment {
+public class WhatsNextTab1 extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.tab3, container, false);
+        return inflater.inflate(R.layout.tab1, container, false);
     }
 }

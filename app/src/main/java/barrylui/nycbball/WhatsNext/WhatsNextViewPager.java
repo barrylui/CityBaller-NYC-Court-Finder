@@ -1,4 +1,4 @@
-package barrylui.nycbball;
+package barrylui.nycbball.WhatsNext;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -23,6 +23,10 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 import android.widget.Toast;
+
+import barrylui.nycbball.CourtsNearMe.CourtsNearMeActivity;
+import barrylui.nycbball.MapsActivity;
+import barrylui.nycbball.R;
 
 
 public class WhatsNextViewPager extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{

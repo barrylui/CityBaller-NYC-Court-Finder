@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import pl.droidsonroids.gif.GifDrawable;
+import barrylui.nycbball.WelcomePage.LandingPageActivity;
 import pl.droidsonroids.gif.GifTextView;
 
 
@@ -29,12 +29,12 @@ public class SplashScreen extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        //Display splash screen with gif for 4.6 seconds then launch LandingPage with welcome fragment
+        //Display splash screen with gif for 4.6 seconds then launch LandingPageActivity with welcome fragment
         mHandler = new Handler();
         mRunnable = new Runnable() {
             @Override
             public void run() {
-                Intent o = new Intent(SplashScreen.this, LandingPage.class);
+                Intent o = new Intent(SplashScreen.this, LandingPageActivity.class);
                 startActivity(o);
                 finish();
             }

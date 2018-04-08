@@ -1,4 +1,4 @@
-package barrylui.nycbball;
+package barrylui.nycbball.WelcomePage;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -14,13 +14,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import barrylui.nycbball.CourtsNearMe.CourtsNearMeActivity;
+import barrylui.nycbball.MapsActivity;
+import barrylui.nycbball.R;
+import barrylui.nycbball.WhatsNext.WhatsNextViewPager;
+
 /* ----------------------------------------------------------
  * This is the Landing page for CityBaller
  * You can navigate to the other activities from this screen
  * ----------------------------------------------------------
  */
 
-public class LandingPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, WelcomeFrag.OnBallClickListener {
+public class LandingPageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, LandingPageFragment.OnBallClickListener {
 
     DrawerLayout drawerLayout;
 
@@ -36,7 +41,7 @@ public class LandingPage extends AppCompatActivity implements NavigationView.OnN
         getSupportActionBar().setTitle(R.string.welcome);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, WelcomeFrag.newInstance(R.id.welcome)).commit();
+                .replace(R.id.container, LandingPageFragment.newInstance(R.id.welcome)).commit();
 
         //Set up Navigation bar
         NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
@@ -93,7 +98,7 @@ public class LandingPage extends AppCompatActivity implements NavigationView.OnN
                 break;
             default:
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, WelcomeFrag.newInstance(R.id.welcome))
+                        .replace(R.id.container, LandingPageFragment.newInstance(R.id.welcome))
                         .commit();
         }
 

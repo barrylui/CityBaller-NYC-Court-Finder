@@ -35,6 +35,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import barrylui.nycbball.CourtData.CourtData;
+import barrylui.nycbball.CourtDetails.CourtDetailViewActivity;
+import barrylui.nycbball.CourtsNearMe.CourtsNearMeActivity;
+import barrylui.nycbball.WhatsNext.WhatsNextViewPager;
+
 
 /* -------------------------------------------------------------------------------------------------
  * This is the Map Page
@@ -280,7 +285,7 @@ public class MapsActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onInfoWindowClick(Marker marker) {
         int in = (Integer)marker.getTag();
-        Intent info = new Intent(getBaseContext(), CourtActivity.class);
+        Intent info = new Intent(getBaseContext(), CourtDetailViewActivity.class);
         info.putExtra("position", in);
         startActivity(info);
     }

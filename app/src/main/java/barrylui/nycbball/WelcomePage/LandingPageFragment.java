@@ -1,15 +1,12 @@
-package barrylui.nycbball;
+package barrylui.nycbball.WelcomePage;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 
+import barrylui.nycbball.R;
 import pl.droidsonroids.gif.GifTextView;
 
 /* ------------------------
@@ -17,18 +14,18 @@ import pl.droidsonroids.gif.GifTextView;
  * ------------------------
  */
 
-public class WelcomeFrag extends Fragment {
+public class LandingPageFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
     GifTextView animatedAppLogo;
 
 
 
-    public WelcomeFrag() {
+    public LandingPageFragment() {
         // Required empty public constructor
     }
 
-    public static WelcomeFrag newInstance(int sectionNumber) {
-        WelcomeFrag fragment = new WelcomeFrag();
+    public static LandingPageFragment newInstance(int sectionNumber) {
+        LandingPageFragment fragment = new LandingPageFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
@@ -44,7 +41,7 @@ public class WelcomeFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_welcome, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_landingpage, container, false);
         //Click listener for the gif
         final OnBallClickListener bListener = (OnBallClickListener) getContext();
         animatedAppLogo = (GifTextView) rootView.findViewById(R.id.gifView);
