@@ -96,7 +96,10 @@ public class CourtsNearMeRecyclerViewAdapter extends RecyclerView.Adapter<Courts
             {
                 circleImage.setImageResource(R.drawable.seventoten);
             }
-
+            //else if (rate < 7)
+            //{
+            //    circleImage.setImageResource(R.drawable.seventoten);
+            //}
             else
                 circleImage.setImageResource(R.drawable.promo512);
 

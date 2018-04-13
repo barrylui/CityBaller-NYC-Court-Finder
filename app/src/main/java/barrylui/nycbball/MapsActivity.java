@@ -35,9 +35,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import barrylui.nycbball.CourtData.CourtData;
-import barrylui.nycbball.CourtDetails.CourtDetailViewActivity;
+import barrylui.nycbball.CourtDetail.CourtDetailViewActivity;
 import barrylui.nycbball.CourtsNearMe.CourtsNearMeActivity;
+import barrylui.nycbball.Data.CourtData;
 import barrylui.nycbball.WhatsNext.WhatsNextViewPager;
 
 

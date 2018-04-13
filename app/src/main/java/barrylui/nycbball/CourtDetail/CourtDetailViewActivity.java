@@ -1,4 +1,4 @@
-package barrylui.nycbball.CourtDetails;
+package barrylui.nycbball.CourtDetail;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import barrylui.nycbball.CourtData.CourtData;
+import barrylui.nycbball.Data.CourtData;
 import barrylui.nycbball.R;
 
 
@@ -28,10 +28,10 @@ public class CourtDetailViewActivity extends AppCompatActivity implements CourtD
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Get index to access specific court
+        //Get index to access courtdata
         index = getIntent().getIntExtra("position", 1);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_courtsdetailview);
+        setContentView(R.layout.activity_court);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar);
@@ -57,7 +57,7 @@ public class CourtDetailViewActivity extends AppCompatActivity implements CourtD
         startActivity(browserIntent);
     }
 
-    //Launches panoramic activity to view court
+    //Launches panoramic activity when button is pressed on fragment
     public void onPanoramicViewListener(int index){
         int num = index;
         Intent panoramic = new Intent(this, PanoramicViewer.class);

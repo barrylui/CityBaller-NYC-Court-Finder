@@ -20,14 +20,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import barrylui.nycbball.CourtData.CourtData;
+import barrylui.nycbball.Data.CourtData;
 import barrylui.nycbball.MapsActivity;
 import barrylui.nycbball.R;
 import barrylui.nycbball.WhatsNext.WhatsNextViewPager;
 
 /* --------------------------------------------------------------------------------------
  * Activity with toolbar, gps coordinates and a container to load recyclerview fragment
- * Used to calculate distance from courts
  * --------------------------------------------------------------------------------------
  */
 public class CourtsNearMeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -58,6 +57,7 @@ public class CourtsNearMeActivity extends AppCompatActivity implements Navigatio
                 lat = latitude;
                 lng = longitude;
 
+                // \n is for new line
                 //Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
             } else {
                 // Can't get location.

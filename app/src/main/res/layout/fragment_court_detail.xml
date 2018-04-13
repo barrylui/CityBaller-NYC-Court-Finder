@@ -7,7 +7,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context="barrylui.nycbball.CourtDetails.CourtDetailViewFragment"
+    tools:context="barrylui.nycbball.CourtDetail.CourtDetailViewFragment"
     android:background="#023661">
 
 

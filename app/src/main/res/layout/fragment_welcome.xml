@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Welcome to CityBaller!"
         android:id="@+id/textView"
-        android:textSize="23dp"
+        android:textSize="21dp"
         android:gravity="center"
         android:layout_below="@+id/gifView"
         android:layout_centerHorizontal="true"
@@ -27,7 +27,7 @@
         android:layout_height="250dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/ballstop"
         />
 
@@ -41,7 +41,7 @@
         android:textSize="18dp"
         android:textColor="#0662AE"
         android:gravity="center"
-        android:text="Find basketball courts in Manhattan. Step onto any court by viewing panoramic images and receive directions to any court with a push of a button." />
+        android:text="This app will help you find basketball courts in Manhattan. Step onto any court by viewing panoramic images and receive directions to any court with a push of a button!" />
 
 
 </RelativeLayout>

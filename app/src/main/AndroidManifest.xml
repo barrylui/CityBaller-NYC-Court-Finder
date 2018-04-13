@@ -32,7 +32,7 @@
             android:label="@string/title_activity_maps"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CourtDetails.CourtDetailViewActivity"
+            android:name=".CourtDetail.CourtDetailViewActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".SplashScreen"
@@ -44,7 +44,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CourtDetails.PanoramicViewer"
+            android:name=".CourtDetail.PanoramicViewer"
             android:screenOrientation="landscape" />
         <activity
             android:name=".WhatsNext.WhatsNextViewPager"

@@ -8,7 +8,7 @@ android:paddingBottom="0dp"
 android:paddingLeft="0dp"
 android:paddingRight="0dp"
 android:paddingTop="0dp"
-tools:context="barrylui.nycbball.CourtDetails.PanoramicViewer">
+tools:context="barrylui.nycbball.CourtDetail.PanoramicViewer">
 
 <WebView  xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/webview1"

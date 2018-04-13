@@ -1,4 +1,4 @@
-package barrylui.nycbball.CourtDetails;
+package barrylui.nycbball.CourtDetail;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import barrylui.nycbball.CourtData.CourtData;
+import barrylui.nycbball.Data.CourtData;
 import barrylui.nycbball.R;
 
 

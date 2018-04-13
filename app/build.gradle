@@ -8,8 +8,8 @@ android {
         applicationId "barrylui.nycbball"
         minSdkVersion 21
         targetSdkVersion 24
-        versionCode 10
-        versionName "10"
+        versionCode 11
+        versionName "11"
         multiDexEnabled true
     }
     dexOptions {

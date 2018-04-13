@@ -1,11 +1,11 @@
-package barrylui.nycbball.CourtDetails;
+package barrylui.nycbball.CourtDetail;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-import barrylui.nycbball.CourtData.CourtData;
+import barrylui.nycbball.Data.CourtData;
 import barrylui.nycbball.R;
 /* -------------------------------------------------------------------------------------------------
  * PanoramicViewer for courts

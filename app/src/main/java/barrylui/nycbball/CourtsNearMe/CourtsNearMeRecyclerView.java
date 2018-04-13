@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.DialogPreference;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,9 +22,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import barrylui.nycbball.CourtData.FeaturedCourts;
-import barrylui.nycbball.CourtDetails.CourtDetailViewActivity;
-import barrylui.nycbball.CourtData.CourtData;
+import barrylui.nycbball.CourtDetail.CourtDetailViewActivity;
+import barrylui.nycbball.Data.CourtData;
 import barrylui.nycbball.R;
 
 /**
@@ -35,17 +33,19 @@ import barrylui.nycbball.R;
  */
 public class CourtsNearMeRecyclerView extends Fragment{
 
+    RelativeLayout r1;
     RecyclerView mRecyclerView;
     LinearLayoutManager mLayoutManager;
+    GPSTracker gps;
 
+    private int mParam1;
     private CourtsNearMeRecyclerViewAdapter mRecyclerViewAdapter;
     private OnFragmentInteractionListener mListener;
     private CourtData courtData = new CourtData();
-    private FeaturedCourts fcourtData = new FeaturedCourts();
+    CourtsNearMeActivity recyclerviewactivity = (CourtsNearMeActivity) getActivity();
     double currentLat;
     double currentLng;
     public List<Map<String, ?>> courtsNearMe = new ArrayList<Map<String,?>>(); //List with courts near user
-
 
     public static CourtsNearMeRecyclerView newInstance(double userLat,double userLng) {
         CourtsNearMeRecyclerView fragment = new CourtsNearMeRecyclerView();
@@ -70,23 +70,56 @@ public class CourtsNearMeRecyclerView extends Fragment{
         new AsyncFindCourtsNearMe().execute();
     }
 
-    //Compare current lat lng to courts. return list with closeby courts, quicksort list to sort by distance
     private class AsyncFindCourtsNearMe extends AsyncTask<Void, Void,Void> {
 
         @Override
         protected Void doInBackground(Void... params) {
             courtsNearMe.clear();
             compareCurrentLatLngToCourts(currentLat, currentLng);
-            quickSort(courtsNearMe);
+            if (courtsNearMe.isEmpty() != true){
+                quickSort(courtsNearMe);
+            }
             return null;
         }
+        /*
+        @Override
+        protected void onPostExecute(Void v){
 
-        //@Override
-        //protected void onPostExecute() {
-        //
-        //}
+        }
+*/
     }
 
+    //Quicksort method to sort list
+    public static void quickSort(List<Map<String, ?>> thelist ){
+        quickSort(thelist, 0, thelist.size() - 1);
+    }
+
+    public static void quickSort(List<Map<String, ?>> thelist, int from, int to) {
+        if (from < to) {
+            int pivot = from;
+            int left = from + 1;
+            int right = to;
+            double pivotValue = Double.parseDouble((String)thelist.get(pivot).get("distance"));
+            while (left <= right) {
+                // left <= to -> limit protection
+                while ((double)left <= to && pivotValue >= Double.parseDouble((String)thelist.get(left).get("distance"))) {
+                    left++;
+                }
+                // right > from -> limit protection
+                while (right > from && pivotValue < Double.parseDouble((String)thelist.get(right).get("distance"))){
+                    right--;
+                }
+                if (left < right) {
+                    Collections.swap(thelist, left, right);
+                }
+            }
+            Collections.swap(thelist, pivot, left - 1);
+            quickSort(thelist, from, right - 1); // <-- pivot was wrong!
+            quickSort(thelist, right + 1, to);   // <-- pivot was wrong!
+
+        }
+
+    }
     // Method to compare user location to courts
     public void compareCurrentLatLngToCourts (double curLat, double curLng)
     {
@@ -147,39 +180,6 @@ public class CourtsNearMeRecyclerView extends Fragment{
         return court;
     }
 
-    //Quicksort method to sort list
-    public static void quickSort(List<Map<String, ?>> thelist ){
-        quickSort(thelist, 0, thelist.size() - 1);
-    }
-
-    public static void quickSort(List<Map<String, ?>> thelist, int from, int to) {
-        if (from < to) {
-            int pivot = from;
-            int left = from + 1;
-            int right = to;
-            double pivotValue = Double.parseDouble((String)thelist.get(pivot).get("distance"));
-            while (left <= right) {
-                // left <= to -> limit protection
-                while ((double)left <= to && pivotValue >= Double.parseDouble((String)thelist.get(left).get("distance"))) {
-                    left++;
-                }
-                // right > from -> limit protection
-                while (right > from && pivotValue < Double.parseDouble((String)thelist.get(right).get("distance"))){
-                    right--;
-                }
-                if (left < right) {
-                    Collections.swap(thelist, left, right);
-                }
-            }
-            Collections.swap(thelist, pivot, left - 1);
-            quickSort(thelist, from, right - 1); // <-- pivot was wrong!
-            quickSort(thelist, right + 1, to);   // <-- pivot was wrong!
-
-        }
-
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -187,15 +187,14 @@ public class CourtsNearMeRecyclerView extends Fragment{
 
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.cardList);
         mRecyclerView.setHasFixedSize(false);
+
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        //No courts nearby found, produce default list for user
-        if (courtsNearMe.isEmpty()){
-            populateFeaturedCourtsList();
+        if(courtsNearMe.isEmpty()==true){
             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
             alertDialog.setTitle(R.string.no_courts_found);
-            alertDialog.setMessage("Try again after moving closer to Manhattan or enabling location settings. Here is a list of featured courts, or look around the city with the interactive map");
+            alertDialog.setMessage("Try again after moving closer to Manhattan or enabling location settings. Look around the city with the interactive map or browse our featured courts here");
             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -203,7 +202,27 @@ public class CourtsNearMeRecyclerView extends Fragment{
                 }
             });
             alertDialog.show();
+
+            for(int i =0; i<courtData.getSize(); i++){
+                String rating = (String)courtData.getItem(i).get("rating");
+                int rate = Integer.valueOf(rating);
+
+                if(rate > 7){
+                    String name = (String)courtData.getItem(i).get("name");
+                    String descrip = (String)courtData.getItem(i).get("description");
+                    String imgurl = (String)courtData.getItem(i).get("imageurl");
+                    String directlink = (String)courtData.getItem(i).get("directlink");
+                    double courtlat = (double)courtData.getItem(i).get("lat");
+                    double courtlng = (double)courtData.getItem(i).get("lng");
+                    double distanceFromCourt = calculateDistanceBtwnTwoPoints(courtlat, courtlng, currentLat, currentLng);
+                    DecimalFormat distanceformat = new DecimalFormat("#.##");
+                    double dis = Double.valueOf(distanceformat.format(distanceFromCourt));
+                    String dist = Double.toString(dis);
+                    courtsNearMe.add(createCourt(name, courtlat, courtlng, descrip, imgurl, rating, directlink,dist));
+                }
+            }
         }
+
 
         mRecyclerViewAdapter = new CourtsNearMeRecyclerViewAdapter(getActivity(), courtsNearMe);
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
@@ -224,24 +243,6 @@ public class CourtsNearMeRecyclerView extends Fragment{
             }
         });
         return rootView;
-    }
-
-    public void populateFeaturedCourtsList(){
-        for(int i =0; i< fcourtData.getSize();i++){
-            double courtlat = (double)fcourtData.getItem(i).get("lat");
-            double courtlng = (double)fcourtData.getItem(i).get("lng");
-            double distanceFromCourt = calculateDistanceBtwnTwoPoints(courtlat, courtlng, currentLat, currentLng);
-            DecimalFormat distanceformat = new DecimalFormat("#.##");
-            double dis = Double.valueOf(distanceformat.format(distanceFromCourt));
-            String dist = Double.toString(dis);
-            String name = (String)fcourtData.getItem(i).get("name");
-            String descrip = (String)fcourtData.getItem(i).get("description");
-            String imgurl = (String)fcourtData.getItem(i).get("imageurl");
-            String rating = (String)fcourtData.getItem(i).get("rating");
-            String directlink = (String)fcourtData.getItem(i).get("directlink");
-            courtsNearMe.add(createCourt(name, courtlat, courtlng, descrip, imgurl, rating, directlink,dist));
-
-        }
     }
 
     public interface OnFragmentInteractionListener {

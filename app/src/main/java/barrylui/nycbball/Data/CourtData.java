@@ -1,4 +1,4 @@
-package barrylui.nycbball.CourtData;
+package barrylui.nycbball.Data;
 
 import android.util.Log;
 
@@ -9,7 +9,7 @@ import java.util.Map;
 
 /* ----------------------------------------------------------
  * CourtData file
- * Contains data for basketball courts in manahttan
+ * Contains database for basketball courts in manahttan
  * ----------------------------------------------------------
  */
 
@@ -32,12 +32,13 @@ public class CourtData {
         String description;
         String imageurl;
         String rating;
+        boolean fullcourt;
         String directionsLink;
         int distance;
 
         courtsList = new ArrayList<Map<String, ?>>();
 
-        /*
+/*
         lat = 40.6875;
         lng = -73.9258333;
         description = "My court";
@@ -369,7 +370,7 @@ public class CourtData {
         rating = "8";
         directionsLink = "https://citymapper.com/directions?endcoord="+lat+"%2C"+lng+"&endname=Washington%20Square%20Park";
         distance = 0;
-        courtsList.add(createCourt("Washington Square Park",lat,lng,description,imageurl,rating,directionsLink,distance));
+        courtsList.add(createCourt("Washing Square Park",lat,lng,description,imageurl,rating,directionsLink,distance));
 
         lat = 40.791042;
         lng = -73.959792;
