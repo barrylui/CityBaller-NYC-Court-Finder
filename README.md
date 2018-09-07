@@ -5,7 +5,7 @@
 This application helps users find basketball courts in New York City. 
 Panoramic images, ratings, desciptions, and directions to over 100 courts in Manhattan!
 
-UI patterns used : Google Maps, RecyclerView, ViewPager, CircleImageViews, Buttons
+UI patterns used : Google Maps, RecyclerView, ViewPager
 
 
 
